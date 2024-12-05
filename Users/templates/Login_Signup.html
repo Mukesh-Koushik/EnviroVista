@@ -234,6 +234,12 @@
             .terms-checkbox {
                 font-size: 0.8rem;
             }
+            #msg{
+                color: red;
+            }
+            .demo{
+                color:red;
+            }
 
 
         }
@@ -247,18 +253,24 @@
                 <img src="{% static 'Logo.png' %}" alt="EV Logo">
                 <h1>EnviroVista <span>Login</span></h1>
             </div>
-            <form>
+            <form method="post" action="{% url 'logindb' %}">
+                {% csrf_token %}
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <button type="submit">Login</button>
                 <p>Don't have an account? <span class="toggle-link" onclick="toggleForm()">Sign Up</span></p>
             </form>
+            {% for message in messages %}
+                <p id="msg">{{ message }}</p>
+            {% endfor %}
+
+            <p class="demo">hhhhhhh</p>
         </div>
 
         <!-- Signup Form -->
@@ -268,29 +280,30 @@
                 <h1>EnviroVista <span>Registration</span></h1>
             </div>
             
-            <form>
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
                 <div class="input-box">
-                    <input type="text" placeholder="First Name" required>
+                    <input type="text" name="fname" placeholder="First Name" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" name="lname" placeholder="Last Name" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" name="email" placeholder="Email" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Mobile Number" required>
+                    <input type="text" name="num" placeholder="Mobile Number" required>
                     <i class='bx bxs-phone'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Confirm Password" required>
+                    <input type="password" name="conf_pass" placeholder="Confirm Password" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="terms-checkbox">
@@ -298,6 +311,9 @@
                     <label>I agree to the <a href="#">Terms & Conditions</a></label>
                 </div>
                 <button type="submit">Sign Up</button>
+                {% for message in messages %}
+                    <p id="msg">{{ message }}</p>
+                {% endfor %}
                 <p>Already have an account? <span class="toggle-link" onclick="toggleForm()">Login</span></p>
             </form>
         </div>
