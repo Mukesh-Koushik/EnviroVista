@@ -27,7 +27,6 @@ def signup(request):
         
         
         try:
-            # Create the user
             user = CustomUser.objects.create_user(
                 username=mail,
                 email=mail,
