@@ -1,0 +1,313 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup Toggle</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(235, 230, 230, 0.7), rgba(53, 52, 52, 0.7)), url("{% static 'Logo.png' %}") no-repeat center center/cover;
+            overflow-y: auto;
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        .container {
+            width: 100%;
+            max-width: 35%;
+            min-height: calc(100vh - 20px);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s ease-in-out;
+        }
+
+        .logo_name {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .logo_name img {
+            width: 28%;
+            height: auto;
+            margin-left: 1.3rem;
+        }
+
+        .logo_name h1 {
+            color: #66B539;
+            font-size: 2rem;
+        }
+        .logo_name h1 span {
+            color: #66B539;
+            font-size: 1.7rem;
+        }
+
+        .form-box {
+            width: 100%;
+            padding: 30px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            overflow-y: auto; /* Ensure scrolling within the form */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            max-height: 100%;
+        }
+
+        .form-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .form-box::-webkit-scrollbar-thumb {
+            background-color: #66B539;
+            border-radius: 4px;
+        }
+
+        .form-box.login {
+            opacity: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5%;
+            margin: 35% 0 0 0;
+            border: 1.5px solid #1f5202;
+            background-color: #f4f4f4;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            min-height: auto;
+        }
+
+        .form-box.signup {
+            left: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5%;
+            margin: 5% 0 0 0;
+            border: 1.5px solid #1f5202;
+            background-color: #f4f4f4;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-height:100%;
+        }
+
+        .container.active .form-box.login {
+            opacity: 0;
+            left: -100%;
+        }
+
+        .container.active .form-box.signup {
+            opacity: 1;
+            left: 0;
+        }
+
+        h1, h2 {
+            color: #66B539;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #3ea403;
+            background-color: #f4f4f4;
+            font-size: 1rem;
+        }
+
+        .input-box i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .terms-checkbox a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #66B539;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #398814;
+            transition: 0.3s;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .toggle-link {
+            color: #66B539;
+            cursor: pointer;
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .terms-checkbox input {
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                max-width: fit-content;
+            }
+            .form-box::-webkit-scrollbar {
+                display: none; /* Hides the scrollbar */
+            }
+            .logo_name{
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            .logo_name img{
+                width: 30%;
+                margin-right: 0.1rem;
+            }
+            .logo_name h1 {
+                font-size: 1.8rem;
+            }
+            .form-box{
+                overflow-y: auto; /* Ensure scrolling within the form */
+            }
+            .logo_name h1 span{
+                font-size: 1.2rem;
+            }
+            .input-box input {
+                font-size: 0.9rem;
+            }
+            button {
+                font-size: 1rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .terms-checkbox {
+                font-size: 0.8rem;
+            }
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-box login">
+            <div class="logo_name">
+                <img src="{% static 'Logo.png' %}" alt="EV Logo">
+                <h1>EnviroVista <span>Login</span></h1>
+            </div>
+            <form>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <span class="toggle-link" onclick="toggleForm()">Sign Up</span></p>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-box signup">
+            <div class="logo_name">
+                <img src="{% static 'Logo.png' %}" alt="EV Logo">
+                <h1>EnviroVista <span>Registration</span></h1>
+            </div>
+            
+            <form>
+                <div class="input-box">
+                    <input type="text" placeholder="First Name" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Last Name" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Mobile Number" required>
+                    <i class='bx bxs-phone'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Confirm Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="terms-checkbox">
+                    <input type="checkbox" required>
+                    <label>I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <span class="toggle-link" onclick="toggleForm()">Login</span></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const container = document.querySelector('.container');
+            container.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
