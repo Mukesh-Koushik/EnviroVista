@@ -267,10 +267,8 @@
                 <p>Don't have an account? <span class="toggle-link" onclick="toggleForm()">Sign Up</span></p>
             </form>
             {% for message in messages %}
-                <p id="msg">{{ message }}</p>
+                <p style="color: red; font-weight:bold;">{{ message }}</p>
             {% endfor %}
-
-            <p class="demo">hhhhhhh</p>
         </div>
 
         <!-- Signup Form -->
@@ -312,7 +310,7 @@
                 </div>
                 <button type="submit">Sign Up</button>
                 {% for message in messages %}
-                    <p id="msg">{{ message }}</p>
+                    <p style="color: red; font-weight:bold;">{{ message }}</p>
                 {% endfor %}
                 <p>Already have an account? <span class="toggle-link" onclick="toggleForm()">Login</span></p>
             </form>
