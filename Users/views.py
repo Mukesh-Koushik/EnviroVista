@@ -21,13 +21,22 @@ def signup(request):
         password=request.POST.get('password')
         conf_pass=request.POST.get('conf_pass')
 
+        if len(num)==10 and num.isdigit():
+            pass
+        else:
+            messages.error(request, "Invalid mobile number!")
+            return redirect('loginpage')
+        
+        if len(password)<8:
+            messages.error(request, "Password should atleast contain 8 characters!")
+            return redirect('loginpage')
+
         if password != conf_pass:
             messages.error(request, "Passwords do not match!")
             return redirect('loginpage')
         
-        
         try:
-            user = CustomUser.objects.create_user(username=mail,email=mail,password=password,phone_no=num,)
+            user = CustomUser.objects.create_user(username=mail,first_name=fname, last_name=lname, email=mail,password=password,phone_no=num,)
             user.save()
             messages.success(request, "Account created successfully!")
             return redirect('loginpage')
