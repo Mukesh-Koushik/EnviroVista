@@ -16,4 +16,6 @@ class CustomUser(AbstractUser):
     phone_no = models.CharField(max_length=15, blank=True, null=True)
     profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
+
+
 # Create your models here.
