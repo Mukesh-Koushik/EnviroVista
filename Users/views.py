@@ -10,7 +10,7 @@ def login_signup(request):
     return render(request, 'Login_Signup.html')
 
 def home(request):
-    return render(request, "Home.html")
+    return render(request, "EV_Home.html")
 
 def signup(request):
     if request.method=="POST":

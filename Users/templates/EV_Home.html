@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>Ev</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="EV_Home.css">   
+    </head>
+    <body>
+        <section class="navbarsection">
+            <nav>
+                <!-- Logo Section Outside Sidebar -->
+                <div class="logo">
+                    <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                    <span class="logoName">EnviroVista</span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <ul>
+                    <li class="hideonmobile"><a href="#">Home</a></li>
+                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="#">login</a></li>
+                </ul>
+                
+                <!-- Menu Button for Mobile -->
+                <li onclick="showsidebar()" class="menubtn">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </nav>
+            <hr>
+            <div class="advisement">
+                <p><span>Announcements:</span><marquee behavior="scroll" direction="left">Leaderboard will be updated soon...</marquee></p>
+           </div>
+        </section>
+
+        <!-- Sidebar for Mobile View -->
+        <div class="sidebar">
+            <div class="logoMoblieView">
+                <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                <span class="logoName">EnviroVista</span>
+            </div>
+            <ul>
+                <li onclick="hidebar()" class="hidebar">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">GCS</a></li>
+                <li><a href="#">EcoAware</a></li>
+                <li><a href="#">IdeaForge</a></li>
+                <li><a href="#">LeaderBoard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">login</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content Start-->
+        <section class="section1_image_slider">
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Image 1">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 2">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Image 3">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 3">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Image 3">
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button class="control prev">&#10094;</button>
+                        <button class="control next">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--CARDS CONTAINER START-->
+            <div class="card-container">
+                <div class="card">
+                  <img src="https://img.freepik.com/free-photo/eco-friendly-disposable-tableware-concept-saving-planet-rejection-plastic_169016-10550.jpg" alt="Service 1">
+                  <h3>Eco-friendly products:</h3>
+                  <p>We offer purely Eco-friendly products to make an impact on the environment and the daily lifestyle of our users.</p>
+                </div>
+                <div class="card">
+                  <img src="https://thedecisionlab.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fthedecisionlab%2Fd4e22d6a-a42e-478c-9ce0-022ac95dbf38_Play%2Bfor%2Bthe%2BPlanet.png%3Fauto%3Dcompress%2Cformat&w=3840&q=75" alt="Service 2">
+                  <h3>Gamification:</h3>
+                  <p>We gamified the process of going eco-friendly and attaining a sustainable lifestyle .</p>
+                </div>
+                <div class="card">
+                  <img src="https://climatecarbon.com/wp-content/uploads/2022/07/World-Environment-Day1.webp" alt="Service 3">
+                  <h3>EcoAware:</h3>
+                  <p>The tasks which will help the user to attain a sustainable lifestyle all while rewarding them for their efforts.</p>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGDAazjiXcFduIvcxnAFeGSldxznmLSYvwbQ&s" alt="Service 1">
+                    <h3>GC coin:</h3>
+                    <p>The main center of the website which allows the user to apply discounts in the store and exchange it for cash.</p>
+                </div>
+                <div class="card">
+                    <img src="https://media4.s-nbcnews.com/i/MSNBC/Components/Photo/_new/100423-corporate-green-hmed.jpg" alt="Service 2">
+                    <h3>Discounted store:</h3>
+                    <p>The products in our store are eligible for high discount rates using our own GC coin..</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.prismic.io/statrys/ZoT0kx5LeNNTwvUF_forex-rate-cover.png?ixlib=gatsbyFP&auto=format%2Ccompress&fit=max&rect=0%2C0%2C680%2C680&w=680&h=680" alt="Service 3">
+                    <h3>GC exchange:</h3>
+                    <p>This feature lets the user exchange the GC coins they have for some money under some conditions.</p>
+                </div>
+              </div>
+         <!--CARDS CONTAINER END-->   
+        <!--DEMO VIDEO STRT-->
+        <section class="DemoVideo">
+            <video controls loop>
+                <source src="C:\Users\Karthik\Downloads\matt_devir--one_minute_drive.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+        </section>
+        <!--DEMO VIDEO STRT-->
+        <section class="AboutUsSection"> 
+            <h1>About Us</h1>
+            <div class="OurStory">
+                <p>
+                    <b>Welcome to EnviroVista —</b> a platform where eco-conscious individuals and communities come together to take meaningful steps toward a sustainable future. By completing impactful tasks, sharing innovative ideas, and earning Green Credit Coins (GC Coins), you contribute to protecting our planet while being rewarded for your efforts.
+                    Whether you're planting trees, reducing waste, or supporting eco-friendly products, EnviroVista turns everyday actions into a collective force for good. Join us as we transform sustainability into an engaging, rewarding journey!
+                </p>
+            </div>
+            <div class="OurValues">
+                <h1>Our Values</h1> <br>
+                <p><span>Sustainability:</span> We're committed to reducing our environmental footprint and promoting sustainable practices.</p> <br>
+                <p><span>Community:</span> We believe in the power of community and collaboration to drive positive change.</p><br>
+                <p><span> Innovation:</span> We're dedicated to developing innovative solutions that make a meaningful impact.</p><br>
+            </div>
+            <div class="JoinOurJourney">
+                <h1>Join Our Journey</h1><br>
+                <p>If you're passionate about environmental sustainability and want to be part of a community that's making a difference, join us!</p> <br>
+                <a href="#"><button>Login</button></a>
+            </div>
+        </section>
+         <!-- Main Content End-->
+        <section class="footermain">
+            <footer>
+                <div class="fsec1">
+                    <h1>EnviroVista</h1>
+                    <p>EnviroVista is a gamified platform which helps the user to go eco-friendly and make their lifestyle sustainable with the help of GC coins.</p>
+                </div>
+                <div class="fsec2">
+                    <h1>Useful Links</h1>
+                    <ul>
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="#">GCS</a></li>
+                        <li><a href="#">IdeaForge</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </div>         
+                <div class="fsec3">
+                    <h1>Other Services</h1>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="fsec4">
+                    <h1>Contact Us</h1>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <p><strong>Phone:</strong> +91 6302041057</p>
+                        <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                    </ul>
+                    <div class="footer-links">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer1">
+                <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
+            </div>
+        </section>
+        <script src="EV_Home.js"></script>
+    </body>
+</html>

@@ -1,0 +1,391 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Ev</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
+        <link rel="stylesheet" href="EV_GCS.css">
+    </head>
+    <body>
+        <section class="navbarsection">
+            <nav>
+                <!-- Logo Section Outside Sidebar -->
+                <div class="logo">
+                    <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
+                    <span class="logoName">EnviroVista</span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <ul>
+                    <li class="hideonmobile"><a href="#">Home</a></li>
+                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="#">login</a></li>
+                </ul>
+                
+                <!-- Menu Button for Mobile -->
+                <li onclick="showsidebar()" class="menubtn">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </nav>
+            <hr>
+            <div class="advisement">
+                <p><span>Announcements:</span><marquee behavior="scroll" direction="left">Leaderboard will be updated soon...</marquee></p>
+           </div>
+        </section>
+
+        <!-- Sidebar for Mobile View -->
+        <div class="sidebar">
+            <div class="logoMoblieView">
+                <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
+                <span class="logoName">EnviroVista</span>
+            </div>
+            <ul>
+                <li onclick="hidebar()" class="hidebar">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">GCS</a></li>
+                <li><a href="#">EcoAware</a></li>
+                <li><a href="#">IdeaForge</a></li>
+                <li><a href="#">LeaderBoard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">login</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content Start-->
+        <section class="MainContent">
+            <div class="SB_AddToCart_Profile">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="cart_btns">
+                <a href="#" class="cart-toggle"><i class="fas fa-shopping-cart"></i><span>cart</span></a>
+                <div class="cart-container">
+                    <h2>Your Cart</h2>
+                    <div class="cart-items"></div>
+                    <button class="close-cart">&times;</button>
+                </div>
+                
+                <a href="#" class="orders-toggle"><i class="fas fa-user"></i><span>Your orders</span></a>
+                <div class="orders-container">
+                    <div class="orders-header">
+                    <h2>Your Orders</h2>
+                    <button class="close-orders">&times;</button>
+                    </div>
+                    <ul id="order-list" class="order-list">
+                    <!-- List of orders will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section1_image_slider">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Image 3">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 3">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Image 3">
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="control prev">&#10094;</button>
+                    <button class="control next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+        <h2 id="FeaturedCategories">Featured Categories</h2>
+        <div class="categories-container">
+            <button class="scroll-btn left-btn" onclick="document.querySelector('.categories-wrapper').scrollBy({ left: -300, behavior: 'smooth' });">&#8249;</button>
+            <div class="categories-wrapper">
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 1</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 2</p>       
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 3</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 4</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 5</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 6</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 7</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 8</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 9</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 10</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 11</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 12</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 13</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 14</p>
+              </div>
+              <div class="category">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
+                <p>Category 15</p>
+              </div>
+            </div>
+            <button class="scroll-btn right-btn" onclick="document.querySelector('.categories-wrapper').scrollBy({ left: 300, behavior: 'smooth' });">&#8250;</button>
+        </div>
+
+          <div class="getOfferSection">
+                <div class="offer">
+                    <h3>Category 1</h3>
+                    <p>Get Upto 30% Off</p>
+                    <button>Shop Now</button>
+                    <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Offer 1">
+                </div>
+                <div class="offer">
+                    <h3>Category 2</h3>
+                    <p>Get Upto 40% Off</p>
+                    <button>Shop Now</button>
+                    <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Offer 1">
+                </div>
+          </div>
+
+          <h2 id="PopularProducts">Popular Products</h2>
+
+          <section class="popular-products">
+            <div class="product-cards">
+              <div class="product-card" data-id="1">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
+                <h3>Product Name 1</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$10.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="2">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 2">
+                <h3>Product Name 2</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$15.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="3">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 3</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="4">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 4</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="5">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 5</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="6">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 6</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>    
+            </div>
+            <div class="product-card" data-id="7">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 7</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="8">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 8</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="9">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 9</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="10">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 10</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="11">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 11</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="12">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 12</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="13">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 13</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="14">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 14</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-id="15">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
+                <h3>Product Name 15</h3>
+                <p>Short description of the product goes here.</p>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </section>
+
+          <section class="signup-section">
+            <div class="signup-container">
+                <img src="https://media.istockphoto.com/id/1455534980/photo/asian-chinese-woman-shopping-personal-accessory-in-sustainable-plastic-free-zero-waste.jpg?s=612x612&w=0&k=20&c=t39qsTI0hUcHhI3L6QX_ghf1p1Kv3b_olUioHUqBNts=" alt="Make Your First Order" class="signup-image">
+                <div class="signup-content">
+                    <h2>Make Your First Order Today!</h2>
+                    <p>Get eco-friendly products, and more..</p>
+                    <form class="signup-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Main Content End-->
+        <section class="footermain">
+            <footer>
+                <div class="fsec1">
+                    <h1>Categories</h1>
+                    <ul>
+                        <li><a href="#">category 1</a></li>
+                        <li><a href="#">category 2</a></li>
+                        <li><a href="#">category 3</a></li>
+                        <li><a href="#">category 4</a></li>
+                        <li><a href="#">category 5</a></li>
+                        <li><a href="#">category 6</a></li>
+                        <li><a href="#">category 7</a></li>
+                        <li><a href="#">category 8</a></li>
+                        <li><a href="#">category 9</a></li>
+                        <li><a href="#">category 10</a></li>
+                        <li><a href="#">category 11</a></li>
+                        <li><a href="#">category 12</a></li>
+                        <li><a href="#">category 13</a></li>
+                        <li><a href="#">category 14</a></li>
+                        <li><a href="#">category 15</a></li>
+                    </ul>
+                </div>
+                <div class="fsec2">
+                    <h1>Useful Links</h1>
+                    <ul>
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="#">GCS</a></li>
+                        <li><a href="#">IdeaForge</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </div>         
+                <div class="fsec3">
+                    <h1>Other Services</h1>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="fsec4">
+                    <h1>Contact Us</h1>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <p><strong>Phone:</strong> +91 6302041057</p>
+                        <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                    </ul>
+                    <div class="footer-links">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer1">
+                <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
+            </div>
+        </section>
+        <script src="EV_GCS.js"></script>
+    </body>
+</html>
