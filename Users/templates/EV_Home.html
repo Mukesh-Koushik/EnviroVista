@@ -1,29 +1,36 @@
+{% load static %}
+
 <html>
     <head>
         <title>Ev</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link rel="stylesheet" href="EV_Home.css">   
+        <link rel="stylesheet" href="{% static 'EV_Home.css' %}">   
     </head>
     <body>
         <section class="navbarsection">
             <nav>
                 <!-- Logo Section Outside Sidebar -->
                 <div class="logo">
-                    <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                    <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
                     <span class="logoName">EnviroVista</span>
                 </div>
 
                 <!-- Desktop Navigation Links -->
                 <ul>
-                    <li class="hideonmobile"><a href="#">Home</a></li>
-                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
                     <li class="hideonmobile"><a href="#">EcoAware</a></li>
                     <li class="hideonmobile"><a href="#">IdeaForge</a></li>
                     <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
                     <li class="hideonmobile"><a href="#">Profile</a></li>
-                    <li class="hideonmobile"><a href="#">login</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
+                    {% endif %}
+                    <!-- <li class="hideonmobile"><a href="{% url 'loginpage' %}">login</a></li> -->
                 </ul>
                 
                 <!-- Menu Button for Mobile -->
@@ -44,7 +51,7 @@
         <!-- Sidebar for Mobile View -->
         <div class="sidebar">
             <div class="logoMoblieView">
-                <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
                 <span class="logoName">EnviroVista</span>
             </div>
             <ul>
@@ -55,13 +62,17 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">GCS</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'gcshome' %}">GCS</a></li>
                 <li><a href="#">EcoAware</a></li>
                 <li><a href="#">IdeaForge</a></li>
                 <li><a href="#">LeaderBoard</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">login</a></li>
+                {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'loginpage' %}">Login</a></li>
+                    {% endif %}
             </ul>
         </div>
 
@@ -197,6 +208,6 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
-        <script src="EV_Home.js"></script>
+        <script src="{% static 'EV_Home.js' %}"></script>
     </body>
 </html>

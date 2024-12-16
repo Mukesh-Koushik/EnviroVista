@@ -3,7 +3,9 @@ from Users.templates import *
 from .models import CustomUser
 from django.contrib import messages
 from django.db import IntegrityError
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import logout
+
 
 
 def login_signup(request):
@@ -45,6 +47,19 @@ def signup(request):
             return redirect('loginpage')
 
 
+# def login(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             messages.success(request, "Login successful!")
+#             return redirect('home')  
+#         else:
+#             messages.error(request, "Invalid username or password!")
+#             return redirect('loginpage')
+        
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -52,9 +67,17 @@ def login(request):
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            auth_login(request, user) 
             messages.success(request, "Login successful!")
             return redirect('home')  
         else:
             messages.error(request, "Invalid username or password!")
-            return redirect('loginpage')
+            return redirect('loginpage')  
+
+    return render(request, 'login.html')  # For GET requests
+
+def my_logout(request):
+    logout(request)
+    return redirect('home')
 # Create your views here.
+

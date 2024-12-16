@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
-        <link rel="stylesheet" href="EV_GCS.css">
+        <link rel="stylesheet" href="{% static 'EV_GCS.css' %}">
     </head>
     <body>
         <section class="navbarsection">
@@ -19,13 +19,18 @@
 
                 <!-- Desktop Navigation Links -->
                 <ul>
-                    <li class="hideonmobile"><a href="#">Home</a></li>
-                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
                     <li class="hideonmobile"><a href="#">EcoAware</a></li>
                     <li class="hideonmobile"><a href="#">IdeaForge</a></li>
                     <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
                     <li class="hideonmobile"><a href="#">Profile</a></li>
-                    <li class="hideonmobile"><a href="#">login</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
+                    {% endif %}
+                    <!-- <li class="hideonmobile"><a href="#">login</a></li> -->
                 </ul>
                 
                 <!-- Menu Button for Mobile -->
@@ -57,13 +62,18 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">GCS</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'gcshome' %}">GCS</a></li>
                 <li><a href="#">EcoAware</a></li>
                 <li><a href="#">IdeaForge</a></li>
                 <li><a href="#">LeaderBoard</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">login</a></li>
+                {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'loginpage' %}">Login</a></li>
+                    {% endif %}
+                <!-- <li><a href="#">login</a></li> -->
             </ul>
         </div>
 
@@ -386,6 +396,6 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
-        <script src="EV_GCS.js"></script>
+        <script src="{% static 'EV_GCS.js' %}"></script>
     </body>
 </html>

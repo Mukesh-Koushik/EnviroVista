@@ -21,14 +21,18 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 from Users.views import *
 from GCS.views import *
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', login_signup, name="loginpage"),
+    path('login/', login_signup, name="loginpage"),
+    path('logout/', my_logout, name='logout'),
     path('signup/', signup, name='signup'),
     path('logindb/', login, name='logindb'),
-    path('home/', home, name='home'),
+    path('', home, name='home'),
+    path('gcshome/', gcshome, name='gcshome'),
+    #path('gcshome/', login_required(gcshome), name='gcshome'),
     #path('login/', auth_views.LoginView.as_view(template_name='Users/login.html'), name='login'),
     #path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]
