@@ -18,6 +18,7 @@ colorama==0.4.6
 comtypes==1.4.1
 contourpy==1.2.0
 cycler==0.12.1
+daphne== 4.1.2
 defusedxml==0.7.1
 distro==1.9.0
 Django==5.0.2
