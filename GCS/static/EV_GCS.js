@@ -16,6 +16,27 @@ document.addEventListener('click', function(event) {
     }
 });
 
+document.querySelector('.cart-toggle').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.cart-container').classList.add('show');
+});
+
+// Close the cart when clicking the close button
+document.querySelector('.close-cart').addEventListener('click', () => {
+    document.querySelector('.cart-container').classList.remove('show');
+});
+
+// Show and hide the orders
+document.querySelector('.orders-toggle').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.orders-container').classList.add('show');
+});
+
+// Close the orders when clicking the close button
+document.querySelector('.close-orders').addEventListener('click', () => {
+    document.querySelector('.orders-container').classList.remove('show');
+});
+
 const slides = document.querySelector('.slides');
 const slide = document.querySelectorAll('.slide');
 const prev = document.querySelector('.prev');
@@ -41,16 +62,15 @@ currentIndex = (currentIndex < slide.length - 1) ? currentIndex + 1 : 0;
 updateSlider();
     }, 3000);
 
+
 let cart = [];
 
-// Toggle cart visibility
 const cartToggle = document.querySelector('.cart-toggle');
 const cartContainer = document.querySelector('.cart-container');
 const closeCartButton = document.querySelector('.close-cart');
 const ordersToggle = document.querySelector('.orders-toggle');
 const ordersContainer = document.querySelector('.orders-container');
 const closeOrdersButton = document.querySelector('.close-orders');
-
 
 cartToggle.addEventListener('click', () => {
 cartContainer.style.display = cartContainer.style.display === 'none' || !cartContainer.style.display ? 'block' : 'none';
@@ -109,9 +129,17 @@ cart.forEach(item => {
         <h4>${item.name}</h4>
         <p>Price: ${item.price}</p>
         <p>Quantity: ${item.quantity}</p>
+        <button class="remove-item">Remove</button>
     </div>
     `;
     cartItemsContainer.appendChild(cartItem);
+    cartItem.querySelector(".remove-item").addEventListener("click", function () {
+        const index = cart.indexOf(item);
+        if (index > -1) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+    });
 });
 }
 
@@ -132,3 +160,24 @@ cart.forEach(item => {
     orderList.appendChild(orderItem);
 });
 }
+
+document.addEventListener('touchstart', function(event) {
+    event.preventDefault();
+}, false);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    const toast = document.getElementById("toast");
+
+    addToCartButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Show the toast
+        toast.classList.add("show");
+        
+        // Hide the toast after 3 seconds
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      });
+    });
+  });

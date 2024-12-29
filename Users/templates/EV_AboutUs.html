@@ -1,0 +1,781 @@
+<html>
+    <head>
+        <title>Ev</title>
+        <head>
+            <title>Ev Home</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="C:\Users\Karthik\Downloads\EV_Logo.png">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        </head>
+        <style>
+           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            *{
+                -webkit-tap-highlight-color:transparent;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                font-family: 'poppins', sans-serif;
+            }
+            /*NAV BAR START*/
+            .navbarsection {
+                background-color: #f4f4f4;
+                overflow: hidden;
+                position: fixed;
+                max-width: 100%;
+                width: 100%;
+                z-index: 1000;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                border-radius: 0.5rem;
+                box-shadow:1px 2px 4px #2d6210 ;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+            .logo img {
+                width: 90px;
+                height: auto;
+                max-width: 100%;
+                margin: 0 1rem;
+                padding: 0;
+            }
+            .logoName {
+                margin: -1rem;
+                font-size: 2rem;
+                font-weight: bold;
+                color: #66B539;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                max-width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1rem;
+                top: 0;
+                z-index: 1000;
+            }
+            hr{
+                color: #66B539;
+            }
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex; /* Ensure it's horizontal */
+            }
+            nav li {
+                float: left;
+            }
+            nav li a {
+                display: block;
+                color: #333333;
+                text-align: center;
+                padding: 14px 26px;
+                text-decoration: none;
+                font-size: large;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.1rem;
+            }
+            nav li a:hover {
+                background-color: hsl(84, 5%, 81%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            nav li a:active {
+                background-color: hsl(84, 5%, 89%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            .advisement{
+                text-align: center;
+                padding: 0.5rem;
+            }
+            .advisement p{
+                margin: 0;
+                display: flex;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                color: black;
+                
+            }
+            .advisement span{
+                color: red;
+                font-weight: 600;
+                right: 0;
+                margin-left: 5rem;
+            }
+
+            /*NAV BAR END*/
+            .sidebar {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: #f4f4f4;
+                width: 50%;
+                height: 100vh;
+                z-index: 1;
+                font-size:1.1rem;
+                padding: 10px 40px 40px 10px;
+                box-sizing: border-box;
+                box-shadow: 0 2px 4px #8ecd77;
+                transition: transform 0.4s ease-in-out;
+                transform: translateX(100%); /* Initially hidden off-screen */
+            }
+            .sidebar.show {
+                display: block;
+                transform: translateX(0); /* Slide in */
+            }
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .sidebar li {
+                display: block;
+                text-align: center;
+            }
+            .sidebar li a {
+                color: #333333;
+                padding: 14px 36px;
+                text-decoration: none;
+                font-size: large;
+                display: block;
+            }
+            .sidebar li a:hover {
+                background-color: hsl(84, 5%, 81%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            .sidebar li a:active {
+                background-color: hsl(84, 5%, 89%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            .hidebar {
+                display: block;
+                cursor: pointer;
+                text-align: center;
+                margin-bottom: 20px; 
+            }
+            .menubtn {
+                display: none;
+            }
+            /*MAIN CONTENT START*/
+            .MainContent {
+                display: flex;
+                flex-wrap: wrap;
+                position: relative;
+                justify-content:center;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                margin-top: 11rem;
+                z-index: 10;
+            }
+            #about-us {
+                padding: 40px 20px;
+                color: #333;
+            }
+
+            #about-us .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+            .container h1{
+                font-size: 2rem;
+                color: #2c3e50;
+            }
+            #about-us h1,#about-us h2 {
+                text-align: center;
+                color: #2c3e50;
+            }
+
+            #about-us p, #about-us ul {
+                line-height: 1.6;
+                margin: 20px 0;
+                text-align: justify;
+            }
+
+            #about-us ul {
+                padding-left: 20px;
+            }
+
+            #about-us ul li {
+                margin-bottom: 10px;
+            }
+
+            /* Team Section */
+            .team {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin-top: 30px;
+                margin: 0 auto;
+                gap: 5rem;
+            }
+
+            .team-member {
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 1rem;
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                transition: 0.3s ease;
+            }
+
+            .team-photo {
+                width: 80%;
+                height: 80%;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-bottom: 15px;
+            }
+
+            /* Member Name and Description */
+            .team-member h3 {
+                font-size: 1rem;
+                color: #333333;
+                margin: 10px 0;
+            }
+
+            .team-member p {
+                font-size: 0.9rem;
+                color: #333333;
+            }
+
+            .team-member:hover {
+                box-shadow: 2px 4px 6px #333333;
+            }
+            
+            .container button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                background-color: #66B539;
+                color: #f4f4f4;
+                border: none;
+                padding: 0.8rem 1rem;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 1rem;
+                transition: 0.9s ease;
+                border: 2.2px solid #333333;
+            }
+            button:hover{
+                background-color: #f4f4f4;
+                color: #66B539;
+            }
+
+            /*MAIN CONTENT END*/
+
+            /*FOOTER START*/
+            .footermain {
+                background-color: #f4f4f4;
+                padding: 1rem;
+                text-align: center;
+                margin: 0 auto;
+            }
+            footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            .fsec1, .fsec2, .fsec3, .fsec4 {
+                flex: 1;
+                padding: 1rem;
+            }
+            .fsec1 h1, .fsec2 h1, .fsec3 h1, .fsec4 h1 {
+                font-size: 1.5rem;
+                color: #66B539;
+            }
+            .fsec1 ul {
+                display: grid;
+                position: relative;
+                grid-template-columns: repeat(3, 1fr);
+                font-size: 0.9rem;
+                color: #333333;
+                font-weight: 530;
+                gap: 1rem;
+            }
+            .fsec1 ul, .fsec2 ul, .fsec3 ul, .fsec4 ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .fsec1 li, .fsec2 li, .fsec3 li, .fsec4 li {
+                margin-bottom: 0.5rem;
+            }
+            .fsec1 a, .fsec2 a, .fsec3 a, .fsec4 a {
+                color: #333333;
+                font-size: 0.9rem;
+                text-decoration: none;
+                font-weight: 530;
+            }
+            .fsec4 ul p{
+            margin: 0.4rem;
+            }
+            .footer-links{
+                display: block;
+            }
+            .footer-links a{
+                color: #2d6210;
+                text-decoration: none;
+                border-radius: 100% ;
+                padding: 4%;
+                font-size: 1.5rem;
+            }
+            .footer-links a:hover{
+                background-color: hsl(84, 5%, 81%);
+                border-radius: 100%;
+                transition: all 0.9s ease;
+            }
+            .footer1 {
+                background-color: #66B539;
+                color: #f4f4f4;
+                text-align: center;
+                padding: 0.5rem;
+            }
+            .footer1 p {
+                margin: 0;
+            }
+            /*FOOTER END*/
+            @media screen and (max-width: 768px) {
+                /*NAV BAR START*/
+                body{
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 100vh;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                .logo img{
+                    margin:0;
+                }
+                .logoName{
+                    margin: -1rem;
+                    font-size:1.8rem;
+                }
+                nav{
+                    padding:1rem;
+                }
+                nav ul {
+                    display: none; /* Hide normal nav links */
+                }
+                .menubtn {
+                    display: flex; /* Show menu button */
+                    cursor: pointer;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    flex-shrink: 0;
+                    margin-left: auto;
+                    width: auto;
+                }
+                .hideonmobile {
+                    display: none; /* Hide nav items in mobile */
+                }
+                .advisement p{
+                    left: 0;
+                    font-size: 0.9rem;
+                    margin-left: -3rem;
+                }
+                .sidebar {
+                    display: block; /* Sidebar visible on mobile */
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    width: 50%;
+                    height: 100vh;
+                    background-color: #f4f4f4;
+                    z-index: 1000;
+                    transform: translateX(100%); /* Hidden initially */
+                    transition: transform 0.5s ease; /* Smooth transition for sliding */
+                }
+                .sidebar.show {
+                    transform: translateX(0); /* Slide into view */
+                }
+                .sidebar ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                .sidebar li {
+                    display: block;
+                    text-align: center;
+                }
+                .logoMoblieView{
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                }
+                .logoMoblieView img{
+                    width: 50px;
+                    height: auto;
+                    max-width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                .logoName{
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: #66B539;
+                    margin: -1rem;
+                }
+                .sidebar li a {
+                    color: #333333;
+                    padding: 14px 36px;
+                    text-decoration: none;
+                    font-size: large;
+                    display: block;
+                }
+                .sidebar li a:hover {
+                    background-color: hsl(84, 5%, 81%);
+                    transition: 0.9s ease;
+                    border-radius: 1em;
+                }
+                .sidebar li a:active {
+                    background-color: hsl(84, 5%, 89%);
+                    transition: 0.9s ease;
+                    border-radius: 1em;
+                }
+                .hidebar {
+                    display: block;
+                    cursor: pointer;
+                    text-align: center;
+                    margin-bottom: 20px; 
+                }
+                /*MAIN CONTENT START*/
+                .MainContent {
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: relative;
+                    justify-content:center;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                    margin-top: 11rem;
+                    z-index: 10;
+                }
+
+                #about-us {
+                    padding: 30px 15px;
+                }
+
+                #about-us h1,
+                #about-us h2 {
+                    font-size: 1.6rem;
+                }
+
+                .team {
+                    gap: 1rem;
+                }
+
+                .team-member {
+                    max-width: 200px;
+                }
+
+                .team-photo {
+                    max-width: 120px;
+                    height: 120px;
+                }
+
+                /*FOOTER START*/
+                .footermain{
+                    padding:1rem;
+                    margin-top: 2rem;
+                }
+                footer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: static;
+                    flex-direction: column;
+                    gap: 1rem;
+                    align-items: center;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                .fsec1, .fsec2, .fsec3, .fsec4 {
+                    padding: 0.5rem;
+                    flex-direction: column;
+                }
+                .fsec1 h1, .fsec2 h1, .fsec3 h1, .fsec4 h1 {
+                    font-size: 1.2rem;
+                    color: #66B539;
+                }
+                .fsec1 ul{
+                    display: grid;
+                    position: relative;
+                    grid-template-columns: repeat(3, 1fr);
+                    font-size: 0.9rem;
+                    color: #333333;
+                    font-weight: 530;
+                    gap: 1rem;
+                }
+                .fsec1 ul, .fsec2 ul, .fsec3 ul, .fsec4 ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                .fsec1li, .fsec2 li, .fsec3 li, .fsec4 li {
+                    margin-bottom: 0.5rem;
+                }
+                .fsec1 a, .fsec2 a, .fsec3 a, .fsec4 a {
+                    color: #333333;
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    font-weight: 530;
+                }
+                .fsec4 ul p{
+                    margin: 0.4rem;
+                }
+                .footer-links{
+                    display: block;
+                }
+                .footer-links a{
+                    color: #2d6210;
+                    text-decoration: none;
+                    border-radius: 100% ;
+                    padding: 4%;
+                    font-size: 1.4rem;
+                }
+                .footer-links a:hover{
+                    background-color: hsl(84, 5%, 81%);
+                    border-radius: 100%;
+                    transition: all 0.9s ease;
+                }
+                .footer1 {
+                    background-color: #66B539;
+                    color: #f4f4f4;
+                    text-align: center;
+                    padding: 0.5rem;
+                }
+                .footer1 p {
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="navbarsection">
+            <nav>
+                <!-- Logo Section Outside Sidebar -->
+                <div class="logo">
+                    <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                    <span class="logoName">EnviroVista</span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <ul>
+                    <li class="hideonmobile"><a href="#">Home</a></li>
+                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="#">login</a></li>
+                </ul>
+                
+                <!-- Menu Button for Mobile -->
+                <li onclick="showsidebar()" class="menubtn">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </nav>
+            <hr>
+            <div class="advisement">
+                <p><span>Announcements:</span><marquee behavior="scroll" direction="left">Leaderboard will be updated soon...</marquee></p>
+           </div>
+        </section>
+
+        <!-- Sidebar for Mobile View -->
+        <div class="sidebar">
+            <div class="logoMoblieView">
+                <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                <span class="logoName">EnviroVista</span>
+            </div>
+            <ul>
+                <li onclick="hidebar()" class="hidebar">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">GCS</a></li>
+                <li><a href="#">EcoAware</a></li>
+                <li><a href="#">IdeaForge</a></li>
+                <li><a href="#">LeaderBoard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">login</a></li>
+            </ul>
+        </div>
+        <section class="mainContent">
+            <section id="about-us">
+                <div class="container">
+
+                    <h1 >About Us</h1>
+                    <p><strong>Welcome to EnviroVista</strong> — a platform where eco-conscious individuals and communities come together to take meaningful steps toward a sustainable future. By completing impactful tasks, 
+                        sharing innovative ideas, and earning Green Credit Coins (GC Coins), you contribute to protecting our planet while being rewarded for your efforts. Whether you're planting trees, reducing waste, or supporting eco-friendly products,
+                         EnviroVista turns everyday actions into a collective force for good. Join us as we transform sustainability into an engaging, rewarding journey!
+                    </p>
+                    <p>
+                        <strong>Welcome to Green Credit Store</strong> —
+                        At Green Credit Store, we believe that every small step toward sustainability can create a significant impact on our planet. Our mission is to empower individuals and businesses to make eco-friendly choices through a platform that rewards sustainable practices.
+                    </p>
+                    <br>
+                    <h2>Our Mission</h2>
+                    <p>
+                        We aim to make sustainable living accessible and rewarding. By offering eco-conscious products and innovative solutions, we inspire and support our customers in making responsible decisions for a greener future.
+                    </p>
+                    <br>
+                    <h2>Our Story</h2>
+                    <p>
+                        Green Credit Store was born out of a passion for environmental conservation and a deep desire to contribute to a healthier planet. Recognizing the growing need for sustainable practices, we created a platform where every choice you make contributes to a larger purpose.
+                    </p>
+                    <br>
+                    <h2>What We Offer</h2>
+                    <ul>
+                        <li><strong>Eco-friendly Products:</strong> A curated collection of products designed to minimize environmental impact.</li>
+                        <li><strong>Green Rewards:</strong> Earn credits for every purchase and redeem them for more sustainable products.</li>
+                        <li><strong>Community Focus:</strong> Join a growing community of like-minded individuals who care about the planet.</li>
+                        <li><strong>Eco-friendly Tasks:</strong> Join a Eco-friendly Tasks and get GC coins.</li>
+                    </ul>
+                    <br>
+                    <h2>Our Values</h2>
+                    <ul>
+                        <li><strong>Sustainability:</strong> At the heart of everything we do.</li>
+                        <li><strong>Innovation:</strong> Driving solutions for a better tomorrow.</li>
+                        <li><strong>Transparency:</strong> Building trust through honest practices.</li>
+                    </ul>
+                    <br>
+                    <h2>The Dynamic Team Behind EnviroVista</h2>
+                    <div class="team">
+                        <div class="team-member">
+                            <img src="C:\Users\Karthik\OneDrive\Pictures\mukesh1.jpg" alt="Team Member 1" class="team-photo">
+                            <h3>John Doe – Developer</h3>
+                            <p>Highlight their skills and how they support the project.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="C:\Users\Karthik\OneDrive\Pictures\kiranEV1.jpg" alt="Team Member 2" class="team-photo">
+                            <h3>Jane Smith – Designer</h3>
+                            <p>Highlight their skills and how they support the project.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="C:\Users\Karthik\OneDrive\Pictures\kiranEV2.jpg" alt="Team Member 1" class="team-photo">
+                            <h3>John Doe – Developer</h3>
+                            <p>Highlight their skills and how they support the project.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="C:\Users\Karthik\OneDrive\Pictures\kiranEV4.jpg" alt="Team Member 2" class="team-photo">
+                            <h3>Jane Smith – Designer</h3>
+                            <p>Highlight their skills and how they support the project.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="C:\Users\Karthik\OneDrive\Pictures\kiranEV4.jpg" alt="Team Member 2" class="team-photo">
+                            <h3>Jane Smith – Designer</h3>
+                            <p>Highlight their skills and how they support the project.</p>
+                        </div>
+        
+                    </div>
+                    <br>
+                    <h2>Join Us</h2>
+                    <p>
+                        Together, we can create a world where sustainability is the norm. Explore our store and become a part of the Green Credit movement. Let’s make every choice count!
+                    </p>
+                    <button>Login</button>
+                </div>
+            </section>
+        </section>
+        <section class="footermain">
+            <footer>
+                <div class="fsec1">
+                    <h1>EnviroVista</h1>
+                    <p>EnviroVista is a gamified platform which helps the user to go eco-friendly and make their lifestyle sustainable with the help of GC coins.</p>
+                </div>
+                <div class="fsec2">
+                    <h1>Useful Links</h1>
+                    <ul>
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="#">GCS</a></li>
+                        <li><a href="#">IdeaForge</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </div>         
+                <div class="fsec3">
+                    <h1>Other Services</h1>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="fsec4">
+                    <h1>Contact Us</h1>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <p><strong>Phone:</strong> +91 95155 29584</p>
+                        <p><strong>Email:</strong> envirovistaaaa@gmail.com</p>
+                    </ul>
+                    <div class="footer-links">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer1">
+                <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
+            </div>
+        </section>
+        <script>
+            // Show sidebar
+            function showsidebar() {
+                document.querySelector('.sidebar').classList.toggle('show'); // Toggle the 'show' class for animation
+            }
+                
+            // Hide sidebar
+            function hidebar() {
+                document.querySelector('.sidebar').classList.remove('show');
+            }
+            // Close sidebar if clicked outside
+            document.addEventListener('click', function(event) {
+                const sidebar = document.querySelector('.sidebar');
+                const menuBtn = document.querySelector('.menubtn');
+                if (!event.target.closest('.sidebar') && !event.target.closest('.menubtn')) {
+                sidebar.classList.remove('show');
+            }
+            });
+        </script>
+    </body>
+</html>

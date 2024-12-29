@@ -47,19 +47,6 @@ def signup(request):
             return redirect('loginpage')
 
 
-# def login(request):
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             messages.success(request, "Login successful!")
-#             return redirect('home')  
-#         else:
-#             messages.error(request, "Invalid username or password!")
-#             return redirect('loginpage')
-        
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -67,14 +54,20 @@ def login(request):
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            auth_login(request, user) 
+            auth_login(request, user)
             messages.success(request, "Login successful!")
             return redirect('home')  
         else:
             messages.error(request, "Invalid username or password!")
-            return redirect('loginpage')  
+            return redirect('loginpage')
+        
+def profile(request):
+    user = request.user
+    return render(request, 'EV_Profile.html', {"user": user})
 
-    return render(request, 'login.html')  # For GET requests
+def profileedit(request):
+    return render(request, 'EV_ProfileEdit.html')
+
 
 def my_logout(request):
     logout(request)

@@ -5,6 +5,7 @@
         <title>Ev</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{% static 'Logo.png' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="{% static 'EV_Home.css' %}">   
     </head>
@@ -21,16 +22,15 @@
                 <ul>
                     <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
                     <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
-                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
-                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
-                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
-                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="{% url 'profile' %}">Profile</a></li>
                     {% if request.user.is_authenticated %}
                         <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                         <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
                     {% endif %}
-                    <!-- <li class="hideonmobile"><a href="{% url 'loginpage' %}">login</a></li> -->
                 </ul>
                 
                 <!-- Menu Button for Mobile -->
@@ -64,15 +64,16 @@
                 </li>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'gcshome' %}">GCS</a></li>
-                <li><a href="#">EcoAware</a></li>
-                <li><a href="#">IdeaForge</a></li>
-                <li><a href="#">LeaderBoard</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                <li><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
+                <li><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
                 {% if request.user.is_authenticated %}
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                        <li><a href="{% url 'loginpage' %}">Login</a></li>
-                    {% endif %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'loginpage' %}">Login</a></li>
+                {% endif %}
+                <!-- <li><a href="#">login</a></li> -->
             </ul>
         </div>
 

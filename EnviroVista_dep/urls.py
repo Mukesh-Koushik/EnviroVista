@@ -20,7 +20,10 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
 from Users.views import *
+from Leaderboard.views import *
 from GCS.views import *
+from GCX.views import *
+from Ecoaware.views import *
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
@@ -32,6 +35,23 @@ urlpatterns = [
     path('logindb/', login, name='logindb'),
     path('', home, name='home'),
     path('gcshome/', gcshome, name='gcshome'),
+    path('gcscategory/', gcscategory, name='category'),
+    path('gcscategorydesc/', gcscategorydescription, name='categorydesc'),
+    path('gcsorderconfirm/', gcsorderconfirmation, name='orderconfirm'),
+    path('payment/', gcspaymentpage, name='payment'),
+    path('returns/', gcsreturnpage, name='returnpage'),
+    path('orders/', gcsyourorders, name='yourorders'),
+    path('cartoverview/', gcscartoverview, name='cartoverview'),
+    path('ecoaware/', taskshome, name='ecoaware'),
+    path('leaderboard/', leaderboard, name='leaderboard'),    
+    path('upload/', submission, name='submission'),
+    path('search/', gcssearch, name='searchdb'),
+    path('ideaforge/', ideaforge, name='ideaforge'),
+    path('profile/', profile, name='profile'),
+    path('editprofile/', profileedit, name='editprofile'),
+
+
+    #path('filter/<slug>:<slug>', gcsfilter, name="gcsfilter")
     #path('gcshome/', login_required(gcshome), name='gcshome'),
     #path('login/', auth_views.LoginView.as_view(template_name='Users/login.html'), name='login'),
     #path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),

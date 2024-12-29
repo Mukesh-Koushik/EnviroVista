@@ -1,0 +1,260 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Ev</title>
+        <head>
+            <title>Ev Home</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="{% static 'Logo.png' %}">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            <link rel="stylesheet" href="{% static 'EV_GCS_Category_Description_Page.css' %}">`
+        </head>
+    </head>
+    <body>
+        <section class="navbarsection">
+            <nav>
+                <!-- Logo Section Outside Sidebar -->
+                <div class="logo">
+                    <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
+                    <span class="logoName">EnviroVista</span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <ul>
+                    <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="{% url 'profile' %}">Profile</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+                
+                <!-- Menu Button for Mobile -->
+                <li onclick="showsidebar()" class="menubtn">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </nav>
+            <hr>
+            <div class="advisement">
+                <p><span>Announcements:</span><marquee behavior="scroll" direction="left">Leaderboard will be updated soon...</marquee></p>
+           </div>
+        </section>
+
+        <!-- Sidebar for Mobile View -->
+        <div class="sidebar">
+            <div class="logoMoblieView">
+                <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
+                <span class="logoName">EnviroVista</span>
+            </div>
+            <ul>
+                <li onclick="hidebar()" class="hidebar">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'gcshome' %}">GCS</a></li>
+                <li><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                <li><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
+                <li><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'loginpage' %}">Login</a></li>
+                {% endif %}
+                <!-- <li><a href="#">login</a></li> -->
+            </ul>
+        </div>
+        <section class="mainContent">
+            <div class="SB_AddToCart_Profile">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="cart_btns">
+                <a href="#" class="cart-toggle"><i class="fas fa-shopping-cart"></i><span>cart</span></a>
+                <div class="cart-container">
+                    <h2>Your Cart</h2>
+                    <div class="cart-items"></div>
+                    <button class="close-cart">&times;</button>
+                </div>
+                
+                <a href="#" class="orders-toggle"><i class="fas fa-user"></i><span>Your orders</span></a>
+                <div class="orders-container">
+                    <div class="orders-header">
+                    <h2>Your Orders</h2>
+                    <button class="close-orders">&times;</button>
+                    </div>
+                    <ul id="order-list" class="order-list">
+                    <!-- List of orders will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="product-card product-Card-Main"  data-id="0">
+
+            <div class="product_Image">
+                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product Image">
+            </div>
+
+            <div class="product-details">
+                <h3 class="product-title">Product Name 1</h3>
+                <p class="product-description">Short description of the product goes here.</p>
+
+                <div class="product-specifications">
+                    <p><strong>Height:</strong> [Specify Height]</p>
+                    <p><strong>Weight:</strong> [Specify Weight]</p>
+                </div>
+
+                <p class="product-price">$10.00</p>
+
+                <a href="#" class="product-seller">Sold by XXXX / A product by XXXX</a>
+
+                <ul class="product-features">
+                    <li>7-day return eligible</li>
+                    <li>Secure transaction</li>
+                    <li>Eco-friendly</li>
+                </ul>
+
+                <div class="product-actions">
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="DescriptionAboutTheProduct">
+            <h3 class="description-title">Product Description</h3>
+            <p class="description-text">
+              This product is made from high-quality materials and designed for durability. It offers exceptional functionality and style,
+              making it a perfect addition to your daily essentials. Whether you're at home or on the go, this product ensures comfort and
+              convenience with its innovative features.
+              This product is made from high-quality materials and designed for durability. It offers exceptional functionality and style,
+              making it a perfect addition to your daily essentials. Whether you're at home or on the go, this product ensures comfort and
+              convenience with its innovative features.
+            </p>
+        </div>
+
+        <h2 id="similarProducts">Similar Products</h2>
+        <section class="similar_Products">
+            <div class="product_cards">
+                <div class="product-card" data-id="1">
+                    <div class="product-image">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Product Name 1</h3>
+                        <p>Short description of the product goes here.</p>
+                        <p class="price">$10.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="2">
+                    <div class="product-image">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Product Name 1</h3>
+                        <p>Short description of the product goes here.</p>
+                        <p class="price">$10.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="3">
+                    <div class="product-image">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Product Name 1</h3>
+                        <p>Short description of the product goes here.</p>
+                        <p class="price">$10.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="4">
+                    <div class="product-image">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Product Name 1</h3>
+                        <p>Short description of the product goes here.</p>
+                        <p class="price">$10.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="5">
+                    <div class="product-image">
+                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Product Name 1</h3>
+                        <p>Short description of the product goes here.</p>
+                        <p class="price">$10.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footermain">
+            <footer>
+                <div class="fsec1">
+                    <h1>EnviroVista</h1>
+                    <p>EnviroVista is a gamified platform which helps the user to go eco-friendly and make their lifestyle sustainable with the help of GC coins.</p>
+                </div>
+                <div class="fsec2">
+                    <h1>Useful Links</h1>
+                    <ul>
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="#">GCS</a></li>
+                        <li><a href="#">IdeaForge</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </div>         
+                <div class="fsec3">
+                    <h1>Other Services</h1>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="fsec4">
+                    <h1>Contact Us</h1>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <p><strong>Phone:</strong> +91 6302041057</p>
+                        <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                    </ul>
+                    <div class="footer-links">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer1">
+                <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
+            </div>
+        </section>
+
+        <div id="toast" class="toast hidden">
+            Product added to cart successfully!
+        </div>
+        <script src="{% static 'EV_GCS_Category_Description_Page.js' %}"></script>
+    </body>
+</html>

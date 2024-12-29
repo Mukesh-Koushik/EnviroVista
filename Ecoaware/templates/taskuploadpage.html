@@ -1,0 +1,638 @@
+<html>
+    <head>
+        <title>Ev</title>
+        <head>
+            <title>Ev Home</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="C:\Users\Karthik\Downloads\EV_Logo.png">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        </head>
+        <style>
+           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            *{
+                -webkit-tap-highlight-color:transparent;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                font-family: 'poppins', sans-serif;
+            }
+            /*NAV BAR START*/
+            .navbarsection {
+                background-color: #f4f4f4;
+                overflow: hidden;
+                position: fixed;
+                max-width: 100%;
+                width: 100%;
+                z-index: 1000;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                border-radius: 0.5rem;
+                box-shadow:1px 2px 4px #2d6210 ;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+            .logo img {
+                width: 90px;
+                height: auto;
+                max-width: 100%;
+                margin: 0 1rem;
+                padding: 0;
+            }
+            .logoName {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #66B539;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                max-width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1rem;
+                top: 0;
+                z-index: 1000;
+            }
+            hr{
+                color: #66B539;
+            }
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex; /* Ensure it's horizontal */
+            }
+            nav li {
+                float: left;
+            }
+            nav li a {
+                display: block;
+                color: #333333;
+                text-align: center;
+                padding: 14px 26px;
+                text-decoration: none;
+                font-size: large;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.1rem;
+            }
+            nav li a:hover {
+                background-color: hsl(84, 5%, 81%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            nav li a:active {
+                background-color: hsl(84, 5%, 89%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            .advisement{
+                text-align: center;
+                padding: 0.5rem;
+            }
+            .advisement p{
+                margin: 0;
+                display: flex;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                color: black;
+                
+            }
+            .advisement span{
+                color: red;
+                font-weight: 600;
+                right: 0;
+                margin-left: 5rem;
+            }
+
+            /*NAV BAR END*/
+            .sidebar {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: #f4f4f4;
+                width: 50%;
+                height: 100vh;
+                z-index: 1;
+                font-size:1.1rem;
+                padding: 10px 40px 40px 10px;
+                box-sizing: border-box;
+                box-shadow: 0 2px 4px #8ecd77;
+                transition: transform 0.4s ease-in-out;
+                transform: translateX(100%); /* Initially hidden off-screen */
+            }
+            .sidebar.show {
+                display: block;
+                transform: translateX(0); /* Slide in */
+            }
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .sidebar li {
+                display: block;
+                text-align: center;
+            }
+            .sidebar li a {
+                color: #333333;
+                padding: 14px 36px;
+                text-decoration: none;
+                font-size: large;
+                display: block;
+            }
+            .sidebar li a:hover {
+                background-color: hsl(84, 5%, 81%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            .sidebar li a:active {
+                background-color: hsl(84, 5%, 89%);
+                transition: 0.9s ease;
+                border-radius: 1em;
+            }
+            .hidebar {
+                display: block;
+                cursor: pointer;
+                text-align: center;
+                margin-bottom: 20px; 
+            }
+            .menubtn {
+                display: none;
+            }
+            /*MAIN CONTENT START*/
+            .MainContent {
+                display: flex;
+                flex-wrap: wrap;
+                position: relative;
+                justify-content:center;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 0;
+                padding: 1rem;
+                margin-top: 12.5rem;
+                z-index: 10;
+                background-image: url('envtfbg.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #taskform{
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                border-width: 5px solid;
+                width:400px;
+                border-radius: 2%;
+                background-color: antiquewhite;
+            }
+            #taskform label{
+                font-family: 'poppins', sans-serif;
+                font-size: 1.2rem;
+                color:black;
+                margin-bottom: 5px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            #taskform p{
+                font-family: 'poppins', sans-serif;
+                font-size: 1.2rem;
+                color:black;
+                margin-bottom: 5px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            #taskform img{
+                display:block;
+                height: 340px;
+                width: 340px;
+                object-fit: cover;
+            }
+            .subb{
+                font-size: 1.2rem;
+                border-radius: 10%;
+                background-color: #66B539;
+                margin-bottom:10px;
+            }
+            .subb:hover{
+                background-color: black;
+                color:white;
+            }
+            .subb:active{
+                background-color:antiquewhite;
+                color:black;
+            }
+            /*MAIN CONTENT END*/
+            /*FOOTER START*/
+            .footermain {
+                background-color: #f4f4f4;
+                padding: 1rem;
+                text-align: center;
+                margin: 0 auto;
+            }
+            footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            .fsec1, .fsec2, .fsec3, .fsec4 {
+                flex: 1;
+                padding: 1rem;
+            }
+            .fsec1 h1, .fsec2 h1, .fsec3 h1, .fsec4 h1 {
+                font-size: 1.5rem;
+                color: #66B539;
+            }
+            .fsec1 ul {
+                display: grid;
+                position: relative;
+                grid-template-columns: repeat(3, 1fr);
+                font-size: 0.9rem;
+                color: #333333;
+                font-weight: 530;
+                gap: 1rem;
+            }
+            .fsec1 ul, .fsec2 ul, .fsec3 ul, .fsec4 ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .fsec1 li, .fsec2 li, .fsec3 li, .fsec4 li {
+                margin-bottom: 0.5rem;
+            }
+            .fsec1 a, .fsec2 a, .fsec3 a, .fsec4 a {
+                color: #333333;
+                font-size: 0.9rem;
+                text-decoration: none;
+                font-weight: 530;
+            }
+            .fsec4 ul p{
+            margin: 0.4rem;
+            }
+            .footer-links{
+                display: block;
+            }
+            .footer-links a{
+                color: #2d6210;
+                text-decoration: none;
+                border-radius: 100% ;
+                padding: 4%;
+                font-size: 1.5rem;
+            }
+            .footer-links a:hover{
+                background-color: hsl(84, 5%, 81%);
+                border-radius: 100%;
+                transition: all 0.9s ease;
+            }
+            .footer1 {
+                background-color: #66B539;
+                color: #f4f4f4;
+                text-align: center;
+                padding: 0.5rem;
+            }
+            .footer1 p {
+                margin: 0;
+            }
+            /*FOOTER END*/
+            @media screen and (max-width: 768px) {
+                /*NAV BAR START*/
+                body{
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 100vh;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                .logo img{
+                    margin:0;
+                }
+                .logoName{
+                    font-size:1.8rem;
+                }
+                nav{
+                    padding:1rem;
+                }
+                nav ul {
+                    display: none; /* Hide normal nav links */
+                }
+                .menubtn {
+                    display: flex; /* Show menu button */
+                    cursor: pointer;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    flex-shrink: 0;
+                    margin-left: auto;
+                    width: auto;
+                }
+                .hideonmobile {
+                    display: none; /* Hide nav items in mobile */
+                }
+                .advisement p{
+                    left: 0;
+                    font-size: 0.9rem;
+                    margin-left: -3rem;
+                }
+                .sidebar {
+                    display: block; /* Sidebar visible on mobile */
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    width: 50%;
+                    height: 100vh;
+                    background-color: #f4f4f4;
+                    z-index: 1000;
+                    transform: translateX(100%); /* Hidden initially */
+                    transition: transform 0.5s ease; /* Smooth transition for sliding */
+                }
+                .sidebar.show {
+                    transform: translateX(0); /* Slide into view */
+                }
+                .sidebar ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                .sidebar li {
+                    display: block;
+                    text-align: center;
+                }
+                .logoMoblieView{
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                }
+                .logoMoblieView img{
+                    width: 50px;
+                    height: auto;
+                    max-width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                .logoName{
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: #66B539;
+                }
+                .sidebar li a {
+                    color: #333333;
+                    padding: 14px 36px;
+                    text-decoration: none;
+                    font-size: large;
+                    display: block;
+                }
+
+                    /*FOOTER START*/
+                .footermain{
+                    padding:1rem;
+                    margin-top: 2rem;
+                }
+                footer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: static;
+                    flex-direction: column;
+                    gap: 1rem;
+                    align-items: center;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                .fsec1, .fsec2, .fsec3, .fsec4 {
+                    padding: 0.5rem;
+                    flex-direction: column;
+                }
+                .fsec1 h1, .fsec2 h1, .fsec3 h1, .fsec4 h1 {
+                    font-size: 1.2rem;
+                    color: #66B539;
+                }
+                .fsec1 ul{
+                    display: grid;
+                    position: relative;
+                    grid-template-columns: repeat(3, 1fr);
+                    font-size: 0.9rem;
+                    color: #333333;
+                    font-weight: 530;
+                    gap: 1rem;
+                }
+                .fsec1 ul, .fsec2 ul, .fsec3 ul, .fsec4 ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                .fsec1li, .fsec2 li, .fsec3 li, .fsec4 li {
+                    margin-bottom: 0.5rem;
+                }
+                .fsec1 a, .fsec2 a, .fsec3 a, .fsec4 a {
+                    color: #333333;
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    font-weight: 530;
+                }
+                .fsec4 ul p{
+                    margin: 0.4rem;
+                }
+                .footer-links{
+                    display: block;
+                }
+                .footer-links a{
+                    color: #2d6210;
+                    text-decoration: none;
+                    border-radius: 100% ;
+                    padding: 4%;
+                    font-size: 1.4rem;
+                }
+                .footer-links a:hover{
+                    background-color: hsl(84, 5%, 81%);
+                    border-radius: 100%;
+                    transition: all 0.9s ease;
+                }
+                .footer1 {
+                    background-color: #66B539;
+                    color: #f4f4f4;
+                    text-align: center;
+                    padding: 0.5rem;
+                }
+                .footer1 p {
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="navbarsection">
+            <nav>
+                <!-- Logo Section Outside Sidebar -->
+                <div class="logo">
+                    <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                    <span class="logoName">EnviroVista</span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <ul>
+                    <li class="hideonmobile"><a href="#">Home</a></li>
+                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="#">login</a></li>
+                </ul>
+                
+                <!-- Menu Button for Mobile -->
+                <li onclick="showsidebar()" class="menubtn">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </nav>
+            <hr>
+            <div class="advisement">
+                <p><span>Announcements:</span><marquee behavior="scroll" direction="left">Leaderboard will be updated soon...</marquee></p>
+           </div>
+        </section>
+
+        <!-- Sidebar for Mobile View -->
+        <div class="sidebar">
+            <div class="logoMoblieView">
+                <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
+                <span class="logoName">EnviroVista</span>
+            </div>
+            <ul>
+                <li onclick="hidebar()" class="hidebar">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">GCS</a></li>
+                <li><a href="#">EcoAware</a></li>
+                <li><a href="#">IdeaForge</a></li>
+                <li><a href="#">LeaderBoard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">login</a></li>
+            </ul>
+        </div>
+        <section class="mainContent">
+            <form action="#" id="taskform">
+                <img src="planttree.jpg">
+                <span>
+                <label style="color:darkgreen;">Title:</label><label id="tftitle">Plant a Tree</label><br>
+                </span>
+                <span>
+               <label style="color:darkgreen;">Description:</label>
+               <label id="tfdesc">
+                    Our ecosystem thrives and depends on the trees around us. Go ahead and plant a tree to help the ecosystem and send us a video of it to earn 5GC coins!!!! 
+                <br>
+                <br>              
+            </label>
+            <p id="tfinst"><mark>NOTE: You need to be at the location while uploading the images or videos of your task progress as your location will be recorded for validation purposes<br>
+            </mark> 
+            <br>         
+            INSTRUCTIONS TO BE FOLLOWED FOR UPLOADING IMAGES OF YOUR TASK PROGRESS:<br>
+            1.upload images of your tasks from different views like from left,right,front and back(incase of planting bunch of trees upload a drone view image if possible)<br>
+            2.you need to be at location while uploading the images as your location will be recorded for validation purposes.<br>
+            INSTRUCTIONS TO BE FOLLOWED FOR UPLOADING VIDEO OF YOUR TASK PROGRESS:<br>
+            1.you should upload a video explaining and showing your progress of task and the location.<br>
+            2.you need to be at location while uploading the videos as your location will be recorded for validation purposes.<br>
+        </p>
+            </span>
+            <label>TO Upload images</label>
+            <input type="file" id="img1" capture="user" name = 'image1' accept="image/*" class="i1"><br>
+                        <input type="file" id="img2" capture="user" name = 'image2' accept="image/*" class="i2"><br>
+                        <input type="file" id="img3" capture="user" name = 'image3' accept="image/*" class="i3"><br>
+                        <input type="file" id="img4" capture="user" name = 'image4' accept="image/*" class="i4"><br>
+                        <input type="file" id="img5" capture="user" name = 'image5' accept="image/*" class="i5"><br>
+                        <input type="file" id="img6" capture="user" name = 'image6' accept="image/*" class="i6"><br>
+                        <input type="file" id="img7" capture="user" name = 'image7' accept="image/*" class="i7"><br>
+                        <input type="file" id="img8" capture="user" name = 'image8' accept="image/*" class="i8"><br>
+            <label>To Upload Video</label>
+            <input type="file" id="camera" capture="user" name = 'video' accept="video/*" class="i1">
+            <input type="submit" class="subb"></input>
+        </section>
+        <section class="footermain">
+            <footer>
+                <div class="fsec1">
+                    <h1>EnviroVista</h1>
+                    <p>EnviroVista is a gamified platform which helps the user to go eco-friendly and make their lifestyle sustainable with the help of GC coins.</p>
+                </div>
+                <div class="fsec2">
+                    <h1>Useful Links</h1>
+                    <ul>
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="#">GCS</a></li>
+                        <li><a href="#">IdeaForge</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </div>         
+                <div class="fsec3">
+                    <h1>Other Services</h1>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="fsec4">
+                    <h1>Contact Us</h1>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <p><strong>Phone:</strong> +91 6302041057</p>
+                        <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                    </ul>
+                    <div class="footer-links">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer1">
+                <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
+            </div>
+        </section>
+        <script>
+            // Show sidebar
+            function showsidebar() {
+                document.querySelector('.sidebar').classList.toggle('show'); // Toggle the 'show' class for animation
+            }
+                
+            // Hide sidebar
+            function hidebar() {
+                document.querySelector('.sidebar').classList.remove('show');
+            }
+            // Close sidebar if clicked outside
+            document.addEventListener('click', function(event) {
+                const sidebar = document.querySelector('.sidebar');
+                const menuBtn = document.querySelector('.menubtn');
+                if (!event.target.closest('.sidebar') && !event.target.closest('.menubtn')) {
+                sidebar.classList.remove('show');
+            }
+            });
+        </script>
+    </body>
+</html>

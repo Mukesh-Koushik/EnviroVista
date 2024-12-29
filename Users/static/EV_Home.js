@@ -40,3 +40,7 @@ setInterval(() => {
     currentIndex = (currentIndex < slide.length - 1) ? currentIndex + 1 : 0;
     updateSlider();
 }, 3000);       
+
+document.addEventListener('touchstart', function(event) {
+    event.preventDefault();
+}, false);

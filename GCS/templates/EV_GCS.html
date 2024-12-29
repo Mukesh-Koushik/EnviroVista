@@ -2,9 +2,10 @@
 
 <html>
     <head>
-        <title>Ev</title>
+        <title>Ev GCS</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{% static 'Logo.png' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
         <link rel="stylesheet" href="{% static 'EV_GCS.css' %}">
     </head>
@@ -17,20 +18,18 @@
                     <span class="logoName">EnviroVista</span>
                 </div>
 
-                <!-- Desktop Navigation Links -->
                 <ul>
                     <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
                     <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
-                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
-                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
-                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
-                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="{% url 'profile' %}">Profile</a></li>
                     {% if request.user.is_authenticated %}
                         <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                         <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
                     {% endif %}
-                    <!-- <li class="hideonmobile"><a href="#">login</a></li> -->
                 </ul>
                 
                 <!-- Menu Button for Mobile -->
@@ -64,24 +63,27 @@
                 </li>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'gcshome' %}">GCS</a></li>
-                <li><a href="#">EcoAware</a></li>
-                <li><a href="#">IdeaForge</a></li>
-                <li><a href="#">LeaderBoard</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                <li><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
+                <li><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
                 {% if request.user.is_authenticated %}
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                        <li><a href="{% url 'loginpage' %}">Login</a></li>
-                    {% endif %}
-                <!-- <li><a href="#">login</a></li> -->
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'loginpage' %}">Login</a></li>
+                {% endif %}
+                <!-- <li><a href="">login</a></li> -->
             </ul>
         </div>
 
         <!-- Main Content Start-->
         <section class="MainContent">
             <div class="SB_AddToCart_Profile">
-                <input type="text" class="search-bar" placeholder="Search...">
+                <form method="post" action="{% url 'searchdb' %}">
+                    {% csrf_token %}
+                <input type="text" class="search-bar" name="search" placeholder="Search...">
                 <button class="search-button"><i class="fas fa-search"></i></button>
+                </form>
             </div>
 
             <div class="cart_btns">
@@ -131,72 +133,20 @@
             </div>
         </section>
         <h2 id="FeaturedCategories">Featured Categories</h2>
+        
         <div class="categories-container">
             <button class="scroll-btn left-btn" onclick="document.querySelector('.categories-wrapper').scrollBy({ left: -300, behavior: 'smooth' });">&#8249;</button>
             <div class="categories-wrapper">
+                {% for category in categories %}
               <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 1</p>
+                <img src="{{ category.icon.url }}" alt="Category 1">
+                <p>{{category.name}}</p>
               </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 2</p>       
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 3</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 4</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 5</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 6</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 7</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 8</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 9</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 10</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 11</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 12</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 13</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 14</p>
-              </div>
-              <div class="category">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Category 1">
-                <p>Category 15</p>
-              </div>
+              {% endfor %}
             </div>
             <button class="scroll-btn right-btn" onclick="document.querySelector('.categories-wrapper').scrollBy({ left: 300, behavior: 'smooth' });">&#8250;</button>
         </div>
+        
 
           <div class="getOfferSection">
                 <div class="offer">
@@ -216,112 +166,20 @@
           <h2 id="PopularProducts">Popular Products</h2>
 
           <section class="popular-products">
+            {% for product in products %}
             <div class="product-cards">
-              <div class="product-card" data-id="1">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 1">
-                <h3>Product Name 1</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$10.00</p>
-                <button class="add-to-cart">Add to Cart</button>
+            <div class="product-card" data-id="1">
+                <div class="product-image">
+                    <img src="{{ product.image.url }}" alt="Product 1">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <p class="price">₹{{ product.price }}</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
             </div>
-            <div class="product-card" data-id="2">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 2">
-                <h3>Product Name 2</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$15.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="3">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 3</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="4">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 4</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="5">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 5</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="6">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 6</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>    
-            </div>
-            <div class="product-card" data-id="7">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 7</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="8">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 8</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="9">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 9</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="10">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 10</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="11">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 11</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="12">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 12</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="13">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 13</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="14">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 14</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-id="15">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product 3">
-                <h3>Product Name 15</h3>
-                <p>Short description of the product goes here.</p>
-                <p class="price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+            {% endfor %}
           </section>
 
           <section class="signup-section">
@@ -337,27 +195,16 @@
                 </div>
             </div>
         </section>
+
         <!-- Main Content End-->
         <section class="footermain">
             <footer>
                 <div class="fsec1">
                     <h1>Categories</h1>
                     <ul>
-                        <li><a href="#">category 1</a></li>
-                        <li><a href="#">category 2</a></li>
-                        <li><a href="#">category 3</a></li>
-                        <li><a href="#">category 4</a></li>
-                        <li><a href="#">category 5</a></li>
-                        <li><a href="#">category 6</a></li>
-                        <li><a href="#">category 7</a></li>
-                        <li><a href="#">category 8</a></li>
-                        <li><a href="#">category 9</a></li>
-                        <li><a href="#">category 10</a></li>
-                        <li><a href="#">category 11</a></li>
-                        <li><a href="#">category 12</a></li>
-                        <li><a href="#">category 13</a></li>
-                        <li><a href="#">category 14</a></li>
-                        <li><a href="#">category 15</a></li>
+                        {% for category in categories %}
+                        <li><a href="#">{{ category.name  }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="fsec2">
@@ -396,6 +243,10 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
+        
+        <div id="toast" class="toast hidden">
+            Product added to cart successfully!
+          </div>
         <script src="{% static 'EV_GCS.js' %}"></script>
     </body>
 </html>

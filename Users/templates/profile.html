@@ -1,0 +1,1397 @@
+{% load static %}
+
+
+<html>
+
+<head>
+    <title>Ev</title>
+
+    <head>
+        <title>Ev Home</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/png" href="C:\Users\Karthik\Downloads\EV_Logo.png">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'poppins', sans-serif;
+        }
+
+        /*NAV BAR START*/
+        .navbarsection {
+            background-color: #f4f4f4;
+            overflow: hidden;
+            position: fixed;
+            max-width: 100%;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 1px 2px 4px #2d6210;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 90px;
+            height: auto;
+            max-width: 100%;
+            margin: 0 1rem;
+            padding: 0;
+        }
+
+        .logoName {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #66B539;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+            top: 0;
+            z-index: 1000;
+        }
+
+        hr {
+            color: #66B539;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* Ensure it's horizontal */
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: #333333;
+            text-align: center;
+            padding: 14px 26px;
+            text-decoration: none;
+            font-size: large;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        nav li a:hover {
+            background-color: hsl(84, 5%, 81%);
+            transition: 0.9s ease;
+            border-radius: 1em;
+        }
+
+        nav li a:active {
+            background-color: hsl(84, 5%, 89%);
+            transition: 0.9s ease;
+            border-radius: 1em;
+        }
+
+        .advisement {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .advisement p {
+            margin: 0;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            color: black;
+
+        }
+
+        .advisement span {
+            color: red;
+            font-weight: 600;
+            right: 0;
+            margin-left: 5rem;
+        }
+
+        /*NAV BAR END*/
+        .sidebar {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #f4f4f4;
+            width: 50%;
+            height: 100vh;
+            z-index: 1;
+            font-size: 1.1rem;
+            padding: 10px 40px 40px 10px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px #8ecd77;
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+            /* Initially hidden off-screen */
+        }
+
+        .sidebar.show {
+            display: block;
+            transform: translateX(0);
+            /* Slide in */
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            display: block;
+            text-align: center;
+        }
+
+        .sidebar li a {
+            color: #333333;
+            padding: 14px 36px;
+            text-decoration: none;
+            font-size: large;
+            display: block;
+        }
+
+        .sidebar li a:hover {
+            background-color: hsl(84, 5%, 81%);
+            transition: 0.9s ease;
+            border-radius: 1em;
+        }
+
+        .sidebar li a:active {
+            background-color: hsl(84, 5%, 89%);
+            transition: 0.9s ease;
+            border-radius: 1em;
+        }
+
+        .hidebar {
+            display: block;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menubtn {
+            display: none;
+        }
+
+        /*MAIN CONTENT START*/
+        a{
+            color: blue;
+            text-decoration: none;
+        }
+        #uploadfile{
+            background-color:#66B539;
+            border-radius: 5px;
+            text-align: center;
+            width:120px;
+        }
+        #closebox{
+            position:absolute;
+            top:0;
+            right:2;
+        }
+        #close{
+            font-size: 1.5rem;
+        }
+        input[type="text"]{
+            width: 200px; /* Width of the textbox */
+            height: 30px; /* Height of the textbox */
+            padding: 10px; /* Padding inside the textbox */
+            font-size: 12px; /* Font size for text */
+            font-family: Arial, sans-serif; /* Font family */
+            color: #333; /* Text color */
+            background-color: #ffffff; /* White background */
+            border: 2px solid #ccc; /* Border style */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: border-color 0.3s, box-shadow 0.3s; /
+           
+        }
+        .MainContent {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+            gap: 1rem;
+            padding: 1rem;
+            margin-top: 12.5rem;
+            z-index: 10;
+            background-color: rgb(234, 236, 238);
+        }
+        input[type="file"]{
+        display:none;
+        }
+        #save{
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: #66B539;
+            width:70px;
+            height: 30px;
+
+        }
+        #editprfp{
+            display:none;
+            background-color:yellow;
+            position:absolute;
+            top:40%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            width:80%;
+            max-width:400px;
+            padding: 10px 10px 10px 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @media(max-width:1000px) {
+            .MainContent{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        #fboxout {
+            display: flex;
+            flex-direction: column;
+            width:400px;
+            max-width: 500px;
+        }
+
+        #persdet {
+            display: flex;
+            flex-direction: column;
+        }
+        #persdet > *{
+            flex-grow: 1;
+        }
+        #fboxpd{
+            background-color: white;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            flex-grow:1;
+            flex-shrink:1;
+            flex-direction: column;
+            width: 400px;
+            height:160px;
+            padding: 10px 10px 10px 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            white-space: break-word;
+            margin-bottom: 30px;
+        }
+        #fboxpd > *{
+            flex-grow: 1;
+        }
+        #namepfp{
+            background-color: white;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            max-width: 500px;
+            max-height: 300px;
+            padding: 10px 10px 10px 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            white-space: break-word;
+            margin-bottom: 30px;
+        }
+        #logout{
+            font-size: 1.2rem;
+            background-color:#66B539;
+            max-height: 40px;
+            max-width:100px;
+            border-radius: 5px;
+        }
+        #namepfp > *{
+            flex-grow: 1;
+        }
+        #detspan {
+            margin-right: 10px;
+            max-width: 15px;
+        }
+
+        .editlin {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        #pfp {
+            height: 100px;
+            width: 80px;
+        }
+
+        #editco {
+            position: absolute;
+            right: 0;
+        }
+
+        #persinfo {
+            background-color: white;
+            border-radius: 10px;
+            max-height: 300px;
+            font-size: 1rem;
+            flex-grow: 1;
+            flex-shrink: 1;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            padding: 10px 10px 10px 10px;
+            overflow-wrap: break-word;
+            margin-bottom: 30px;
+        }
+        #persinfo > *{
+            flex-grow: 1;
+        }
+
+        /*old css code just in case
+        .contentyle {
+            display: none;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #leaderboardtable {
+            display:none;
+            box-sizing: border-box;
+            width: 733px;
+        }
+        #leaderboard tr:hover{
+    background-color: #d4f0d4; 
+    cursor: pointer; 
+    }
+    #leaderboard tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+        td,th {
+            font-size: 1.2rem;
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid azure;
+            background-color: #4CAF50; 
+            color: white; 
+            font-weight: bold;
+            padding: 10px; 
+            border-bottom: 3px solid #3E8E41;
+        }
+        #vcard {
+            margin-top: 0px;
+            margin-right: 20px;
+            margin-bottom: 30px;
+            height:800px;
+            width: 400px;
+            box-sizing: border-box;
+            border-radius: 10%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #F8F9FA;
+        }
+
+        #vcard label {
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        #pname {
+            margin-bottom: 20px;
+        }
+
+        #editinfo,#ordersp,#rrfunds,#GCexchange,#logout{
+            font-size: 1.5rem;
+            padding: 10px;
+            background-color: lightgreen;
+            color: green;
+            border-radius: 8%;
+            width:250px;
+            margin-bottom: 10px;
+        }
+        #detailsp{
+            width:300px;
+            margin-left: 50px;
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-bottom:20px;
+        }
+       #detailsp #qu{
+            font-size: 1.5rem;
+            font-style:bold;
+        }
+        #select-container{
+            position: relative;
+            z-index: 1;
+        }
+        #states{
+            width:200px;
+            outline: none;
+            appearance: none;
+            height:36px;
+            padding:0 14px;
+            border-radius: 4px;
+            border:1px solid #666;
+            font-size: 1.2rem;
+        }
+        @media(max-width:1199px)
+        {
+            .contentyle {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }  
+        }
+        @media(min-width:1180px)
+        {
+            .MainContent {
+            margin-top: 10rem;
+        }
+    }
+        @media(max-width:768px)
+        {
+            .MainContent {
+            margin-top: 10rem;
+        }
+        .vcard{
+            margin-top: 0px;
+        }
+        }
+        @media(max-width:900px){
+            #leaderboardtable{
+            display:none;
+            }
+        }
+        old css code end*/
+        /*MAIN CONTENT END*/
+        /*FOOTER START*/
+        .footermain {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .fsec1,
+        .fsec2,
+        .fsec3,
+        .fsec4 {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .fsec1 h1,
+        .fsec2 h1,
+        .fsec3 h1,
+        .fsec4 h1 {
+            font-size: 1.5rem;
+            color: #66B539;
+        }
+
+        .fsec1 ul {
+            display: grid;
+            position: relative;
+            grid-template-columns: repeat(3, 1fr);
+            font-size: 0.9rem;
+            color: #333333;
+            font-weight: 530;
+            gap: 1rem;
+        }
+
+        .fsec1 ul,
+        .fsec2 ul,
+        .fsec3 ul,
+        .fsec4 ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .fsec1 li,
+        .fsec2 li,
+        .fsec3 li,
+        .fsec4 li {
+            margin-bottom: 0.5rem;
+        }
+
+        .fsec1 a,
+        .fsec2 a,
+        .fsec3 a,
+        .fsec4 a {
+            color: #333333;
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 530;
+        }
+
+        .fsec4 ul p {
+            margin: 0.4rem;
+        }
+
+        .footer-links {
+            display: block;
+        }
+
+        .footer-links a {
+            color: #2d6210;
+            text-decoration: none;
+            border-radius: 100%;
+            padding: 4%;
+            font-size: 1.5rem;
+        }
+
+        .footer-links a:hover {
+            background-color: hsl(84, 5%, 81%);
+            border-radius: 100%;
+            transition: all 0.9s ease;
+        }
+
+        .footer1 {
+            background-color: #66B539;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .footer1 p {
+            margin: 0;
+        }
+
+        /*FOOTER END*/
+        @media screen and (max-width: 768px) {
+
+            /*NAV BAR START*/
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .logo img {
+                margin: 0;
+            }
+
+            .logoName {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                /* Hide normal nav links */
+            }
+
+            .menubtn {
+                display: flex;
+                /* Show menu button */
+                cursor: pointer;
+                display: flex;
+                flex-wrap: nowrap;
+                flex-shrink: 0;
+                margin-left: auto;
+                width: auto;
+            }
+
+            .hideonmobile {
+                display: none;
+                /* Hide nav items in mobile */
+            }
+
+            .advisement p {
+                left: 0;
+                font-size: 0.9rem;
+                margin-left: -3rem;
+            }
+
+            .sidebar {
+                display: block;
+                /* Sidebar visible on mobile */
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 50%;
+                height: 100vh;
+                background-color: #f4f4f4;
+                z-index: 1000;
+                transform: translateX(100%);
+                /* Hidden initially */
+                transition: transform 0.5s ease;
+                /* Smooth transition for sliding */
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+                /* Slide into view */
+            }
+
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .sidebar li {
+                display: block;
+                text-align: center;
+            }
+
+            .logoMoblieView {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .logoMoblieView img {
+                width: 50px;
+                height: auto;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .logoName {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #66B539;
+            }
+
+            .sidebar li a {
+                color: #333333;
+                padding: 14px 36px;
+                text-decoration: none;
+                font-size: large;
+                display: block;
+            }
+
+            /*FOOTER START*/
+            .footermain {
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            footer {
+                display: flex;
+                flex-wrap: wrap;
+                position: static;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .fsec1,
+            .fsec2,
+            .fsec3,
+            .fsec4 {
+                padding: 0.5rem;
+                flex-direction: column;
+            }
+
+            .fsec1 h1,
+            .fsec2 h1,
+            .fsec3 h1,
+            .fsec4 h1 {
+                font-size: 1.2rem;
+                color: #66B539;
+            }
+
+            .fsec1 ul {
+                display: grid;
+                position: relative;
+                grid-template-columns: repeat(3, 1fr);
+                font-size: 0.9rem;
+                color: #333333;
+                font-weight: 530;
+                gap: 1rem;
+            }
+
+            .fsec1 ul,
+            .fsec2 ul,
+            .fsec3 ul,
+            .fsec4 ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .fsec1li,
+            .fsec2 li,
+            .fsec3 li,
+            .fsec4 li {
+                margin-bottom: 0.5rem;
+            }
+
+            .fsec1 a,
+            .fsec2 a,
+            .fsec3 a,
+            .fsec4 a {
+                color: #333333;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 530;
+            }
+
+            .fsec4 ul p {
+                margin: 0.4rem;
+            }
+
+            .footer-links {
+                display: block;
+            }
+
+            .footer-links a {
+                color: #2d6210;
+                text-decoration: none;
+                border-radius: 100%;
+                padding: 4%;
+                font-size: 1.4rem;
+            }
+
+            .footer-links a:hover {
+                background-color: hsl(84, 5%, 81%);
+                border-radius: 100%;
+                transition: all 0.9s ease;
+            }
+
+            .footer1 {
+                background-color: #66B539;
+                color: #f4f4f4;
+                text-align: center;
+                padding: 0.5rem;
+            }
+
+            .footer1 p {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="navbarsection">
+        <nav>
+            <!-- Logo Section Outside Sidebar -->
+            <div class="logo">
+                <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
+                <span class="logoName">EnviroVista</span>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <ul>
+                <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
+                    <li class="hideonmobile"><a href="{% url 'ecoaware' %}">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="{% url 'profile' %}">Profile</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
+                    {% endif %}
+            </ul>
+
+            <!-- Menu Button for Mobile -->
+            <li onclick="showsidebar()" class="menubtn">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </a>
+            </li>
+        </nav>
+        <hr>
+        <div class="advisement">
+            <p><span>Announcements:</span>
+                <marquee behavior="scroll" direction="left">Leaderboard will be updated soon...</marquee>
+            </p>
+        </div>
+    </section>
+
+    <!-- Sidebar for Mobile View -->
+    <div class="sidebar">
+        <div class="logoMoblieView">
+            <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
+            <span class="logoName">EnviroVista</span>
+        </div>
+        <ul>
+            <li onclick="hidebar()" class="hidebar">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </a>
+            </li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'gcshome' %}">GCS</a></li>
+                <li><a href="#">EcoAware</a></li>
+                <li><a href="#">IdeaForge</a></li>
+                <li><a href="#">LeaderBoard</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'loginpage' %}">Login</a>
+                {% endif %}
+                <!-- <li><a href="#">login</a></li> -->
+        </ul>
+    </div>
+    <section class="mainContent">
+        <div id="persdet">
+            <div id="namepfp">
+                <div class="editlin">
+                    <img src="{% static 'profilepic.jpeg' %}" id="pfp" alt="Low-Network">
+                    <i id="editco" class="fa-regular fa-pen-to-square" onclick="window.location.href='editinfo.html'"></i>
+                </div>
+                <label id="username">Panathula Manoj</label>
+                <span>
+                    <label id="q">Rank:</label>
+                    <label id="rank">NA</label>
+                </span>
+                <span>
+                    <label id="q">GC coins:</label>
+                    <label id="gcbal">NA</label>
+                </span>
+            </div>
+            <div id="persinfo">
+                <div class="editlin">
+                    <label style="font-size: 1.6rem;">Personal Information</label>
+                    <i id="editco" class="fa-regular fa-pen-to-square" onclick="window.location.href='editinfo.html'"></i>
+                </div>
+                <div>
+                    <i id="detspan" class="fa-solid fa-phone"></i>
+                    <label id="phnum">6969696969</label>
+                </div>
+                <div>
+                    <i id="detspan" class="fa-regular fa-envelope"></i>
+                    <label id="pmail">thomasshel@gmail.com</label>
+                </div>
+                <div>
+                    <i id="detspan" class="fa-solid fa-location-dot"></i>
+                    <label id="address">England , Birmingham</label>
+                </div>
+            </div>
+            <button id="logout">Log Out</button>
+        </div>
+        <div id="fboxout">
+            <div id="fboxpd">
+                <label style="font-size: 1.5rem;margin-bottom: 15px;">Perform Tasks</label>
+                <label style="color:rgb(92, 88, 88)">participate in our tasks to contribute to the global health.<br><a href="taskhomepage.html">>>Explore More</a></label>
+            </div>
+            <div id="fboxpd">
+                <label style="font-size: 1.5rem;margin-bottom: 15px;">GCC Exchange</label>
+                <label style="color:rgb(92, 88, 88)">Redeem your GC coins for real money.<br><a href="taskhomepage.html">>>Explore More</a></label>
+            </div>
+            <div id="fboxpd">
+                <label style="font-size: 1.5rem;margin-bottom: 15px;">Your Orders</label>
+                <label style="color:rgb(92, 88, 88)">keep track of your orders history.<br><a href="taskhomepage.html">>>Explore More</a></label>
+            </div>
+            <div id="fboxpd">
+                <label style="font-size: 1.5rem;margin-bottom: 15px;">Return and refund</label>
+                <label style="color:rgb(92, 88, 88)">Return your product or apply for refund<br><a href="taskhomepage.html">>>Explore More</a></label>
+            </div>
+        </div>
+
+        <!---
+        <div class="contentyle">
+            <div id="vcard">
+                <span style="margin:15px;">
+                    <img src="profilepic.jpeg" height="100px" width="100px" style="float:left;margin-right: 10px;">
+                    <label id="pName">Panathula Manoj</label>
+                    <br>
+                    <label>Rank  </label>
+                    <label id="rankno">1</label>
+                </span>
+                <hr>
+                <br>
+                <span id="detailsp">
+                    <label id="qu"> ID : </label>
+                    <label id="userId">696969</label>
+                    <br>
+                    <label id="qu">Gender : </label>
+                    <label id="Gender">Male</label>
+                    <br>
+                    <label id="qu">State : </label>
+                    <span id="select-container">
+                    <select title="state" id="states" name="states">
+                        <option value="">-- Select a State/UT --</option>
+                        <option value="AP">Andhra Pradesh</option>
+                        <option value="AR">Arunachal Pradesh</option>
+                        <option value="AS">Assam</option>
+                        <option value="BR">Bihar</option>
+                        <option value="CH">Chandigarh</option>
+                        <option value="CT">Chhattisgarh</option>
+                        <option value="DL">Delhi</option>
+                        <option value="GA">Goa</option>
+                        <option value="GJ">Gujarat</option>
+                        <option value="HR">Haryana</option>
+                        <option value="HP">Himachal Pradesh</option>
+                        <option value="JK">Jammu and Kashmir</option>
+                        <option value="JH">Jharkhand</option>
+                        <option value="KA">Karnataka</option>
+                        <option value="KL">Kerala</option>
+                        <option value="LA">Ladakh</option>
+                        <option value="LD">Lakshadweep</option>
+                        <option value="MP">Madhya Pradesh</option>
+                        <option value="MH">Maharashtra</option>
+                        <option value="MN">Manipur</option>
+                        <option value="ML">Meghalaya</option>
+                        <option value="MZ">Mizoram</option>
+                        <option value="NL">Nagaland</option>
+                        <option value="OR">Odisha</option>
+                        <option value="PY">Puducherry</option>
+                        <option value="PB">Punjab</option>
+                        <option value="RJ">Rajasthan</option>
+                        <option value="SK">Sikkim</option>
+                        <option value="TN">Tamil Nadu</option>
+                        <option value="TG">Telangana</option>
+                        <option value="TR">Tripura</option>
+                        <option value="UP">Uttar Pradesh</option>
+                        <option value="UT">Uttarakhand</option>
+                        <option value="WB">West Bengal</option>
+                    </select>
+                    </span>
+                    <br>
+                    <label id="qu">District : </label>
+                    <label id="district">visakhapatnam</label>
+                    <br>
+                    <label id="qu">User since : </label>
+                    <label id="ujoin">2024</label>
+                    <br>
+                    <label id="qu">GC coins : </label>
+                    <label id="gccount">88</label>
+                </span>
+                <button id="editinfo">Edit Info</button>
+                <button id="ordersp">Your orders</button>
+                <button id="rrfunds">Return and Refunds</button>
+                <button id="GCexchange">GC exchange</button>
+                <button id="logout">Log Out</button>
+            </div>
+                    <table id="leaderboardtable">
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Id</th>
+                            <th>Score</th>
+                            <th>Tasks completed</th>
+                            <th>Region</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Manoj</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kiran</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mukesh</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>pavan</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Manikanta</td>
+                            <td>88888888</td>
+                            <td>69696969</td>
+                            <td>69</td>
+                            <td>India</td>
+                        </tr>
+                        <tr>
+                            <td>-9999999</td>
+                            <td>Tony Stark</td>
+                            <td>888888888</td>
+                            <td>696969969</td>
+                            <td>69</td>
+                            <td>US</td>
+                        </tr>
+                        <tr>
+                    </table>
+                -->
+    </section>
+    <section class="footermain">
+        <footer>
+            <div class="fsec1">
+                <h1>EnviroVista</h1>
+                <p>EnviroVista is a gamified platform which helps the user to go eco-friendly and make their lifestyle
+                    sustainable with the help of GC coins.</p>
+            </div>
+            <div class="fsec2">
+                <h1>Useful Links</h1>
+                <ul>
+                    <li><a href="#">Tasks</a></li>
+                    <li><a href="#">GCS</a></li>
+                    <li><a href="#">IdeaForge</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </div>
+            <div class="fsec3">
+                <h1>Other Services</h1>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="fsec4">
+                <h1>Contact Us</h1>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <p><strong>Phone:</strong> +91 6302041057</p>
+                    <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                </ul>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/your_number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </footer>
+        <div class="footer1">
+            <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
+        </div>
+    </section>
+    <script>
+        // Show sidebar
+        function showsidebar() {
+            document.querySelector('.sidebar').classList.toggle('show'); // Toggle the 'show' class for animation
+        }
+
+        // Hide sidebar
+        function hidebar() {
+            document.querySelector('.sidebar').classList.remove('show');
+        }
+        // Close sidebar if clicked outside
+        document.addEventListener('click', function (event) {
+            const sidebar = document.querySelector('.sidebar');
+            const menuBtn = document.querySelector('.menubtn');
+            if (!event.target.closest('.sidebar') && !event.target.closest('.menubtn')) {
+                sidebar.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>

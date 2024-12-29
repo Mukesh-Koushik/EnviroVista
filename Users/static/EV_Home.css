@@ -20,9 +20,9 @@ body {
     z-index: 1000;
     top: 0;
     left: 0;
-    margin-top: 1rem;
     overflow: hidden;
-    border-radius: 3rem;
+    border-radius: 0.5rem;
+    box-shadow:1px 2px 4px #2d6210 ;
 }
 .logo {
     display: flex;
@@ -39,6 +39,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     color: #66B539;
+    margin: -1rem;
 }
 nav {
     display: flex;
@@ -487,6 +488,9 @@ footer {
 .footer1 p {
     margin: 0;
 }
+*{
+    -webkit-tap-highlight-color:transparent;
+}
 /*FOOTER END*/
 @media screen and (max-width: 768px) {
     /*NAV BAR START*/
@@ -570,6 +574,7 @@ footer {
         font-size: 1.5rem;
         font-weight: bold;
         color: #66B539;
+        margin: -1rem;
     }
     .sidebar li a {
         color: #333333;
