@@ -1,1 +1,1 @@
-web: gunicorn EnviroVista.wsgi --log-file -
+web: daphne your_project_name.asgi:application

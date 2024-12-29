@@ -79,16 +79,29 @@ WSGI_APPLICATION = 'EnviroVista_dep.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ev_db',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ev_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ev_db_kwt5',
+        'USER': 'ev_db_kwt5_user',
+        'PASSWORD': 'nlZGLeL3hmPJ4jySyf3U0DUuXgrF1NVQ',
+        'HOST': 'dpg-ctook0q3esus73dbs5h0-a',
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
+
 
 
 # Password validation
