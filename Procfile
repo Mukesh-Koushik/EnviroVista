@@ -1,0 +1,1 @@
+web: gunicorn EnviroVista.wsgi --log-file -
