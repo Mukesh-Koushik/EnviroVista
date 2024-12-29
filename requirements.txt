@@ -69,6 +69,7 @@ typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==2.2.0
 Werkzeug==3.0.1
+whitenoise==6.8.2
 wikipedia==1.4.0
 wolframalpha==5.0.0
 wrapt==1.14.1
