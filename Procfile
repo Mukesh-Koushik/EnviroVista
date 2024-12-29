@@ -1,1 +1,1 @@
-web: daphne your_project_name.asgi:application
+daphne -p $PORT EnviroVista_dep.asgi:application
