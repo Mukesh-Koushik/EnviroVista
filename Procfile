@@ -1,1 +1,1 @@
-web: daphne -p $PORT myproject.asgi:application
+web: daphne -u /tmp/daphne.sock EnviroVista_dep.asgi:application --bind 0.0.0.0 --port $PORT
