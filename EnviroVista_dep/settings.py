@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bh5!efdhv0g1$&%7#2h&(!16rje%(%=b0x+6*m39auu=%^9$0w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["envirovista.onrender.com", "localhost"]
+ALLOWED_HOSTS = ["https://envirovista.onrender.com", "localhost"]
 
 
 # Application definition
@@ -158,3 +158,7 @@ LOGIN_URL = '/login/'
 
 #logout
 LOGOUT_REDIRECT_URL = '/home/'
+
+
+SESSION_COOKIE_SECURE = True  # Set this to True if using HTTPS
+CSRF_COOKIE_SECURE = True  # Set this to True if using HTTPS
