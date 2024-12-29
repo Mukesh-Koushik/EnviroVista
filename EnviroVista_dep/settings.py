@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bh5!efdhv0g1$&%7#2h&(!16rje%(%=b0x+6*m39auu=%^9$0w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["envirovista.onrender.com", "localhost"]
 
 
 # Application definition
