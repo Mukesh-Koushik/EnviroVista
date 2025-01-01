@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color:transparent;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -29,7 +30,6 @@
             overflow-y: auto;
             background-size: cover;
             background-position: center;
-
         }
 
         .container {
@@ -73,7 +73,7 @@
             left: 0;
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
-            overflow-y: auto; /* Ensure scrolling within the form */
+            overflow-y: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
             max-height: 100%;
@@ -148,6 +148,15 @@
             top: 50%;
             right: 10px;
             transform: translateY(-50%);
+            color: #666;
+        }
+
+        .show-password {
+            position: absolute;
+            top: 50%;
+            right: 40px;
+            transform: translateY(-50%);
+            cursor: pointer;
             color: #666;
         }
 
@@ -235,14 +244,6 @@
             .terms-checkbox {
                 font-size: 0.8rem;
             }
-            #msg{
-                color: red;
-            }
-            .demo{
-                color:red;
-            }
-
-
         }
     </style>
 </head>
@@ -254,22 +255,19 @@
                 <img src="{% static 'images/Logo.png' %}" alt="EV Logo">
                 <h1>EnviroVista <span>Login</span></h1>
             </div>
-            <form method="post" action="{% url 'logindb' %}">
-                {% csrf_token %}
+            <form>
                 <div class="input-box">
-                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="text" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Password" id="login-password" required>
+                    <!--<i class='bx bxs-lock-alt'></i>-->
+                    <i class='bx bx-show show-password' onclick="togglePassword('login-password', this)"></i>
                 </div>
                 <button type="submit">Login</button>
                 <p>Don't have an account? <span class="toggle-link" onclick="toggleForm()">Sign Up</span></p>
             </form>
-            {% for message in messages %}
-                <p style="color: red; font-weight:bold;">{{ message }}</p>
-            {% endfor %}
         </div>
 
         <!-- Signup Form -->
@@ -279,40 +277,38 @@
                 <h1>EnviroVista <span>Registration</span></h1>
             </div>
             
-            <form method="post" action="{% url 'signup' %}">
-                {% csrf_token %}
+            <form>
                 <div class="input-box">
-                    <input type="text" name="fname" placeholder="First Name" required>
+                    <input type="text" placeholder="First Name" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="lname" placeholder="Last Name" required>
+                    <input type="text" placeholder="Last Name" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="email" placeholder="Email" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="num" placeholder="Mobile Number" required>
+                    <input type="text" placeholder="Mobile Number" required>
                     <i class='bx bxs-phone'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Password" id="signup-password" required>
+                    <!--<i class='bx bxs-lock-alt'></i>-->
+                    <i class='bx bx-show show-password' onclick="togglePassword('signup-password', this)"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="conf_pass" placeholder="Confirm Password" required>
-                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Confirm Password" id="signup-confirm-password" required>
+                    <!--<i class='bx bxs-lock-alt'></i>-->
+                    <i class='bx bx-show show-password' onclick="togglePassword('signup-confirm-password', this)"></i>
                 </div>
                 <div class="terms-checkbox">
                     <input type="checkbox" required>
                     <label>I agree to the <a href="#">Terms & Conditions</a></label>
                 </div>
                 <button type="submit">Sign Up</button>
-                {% for message in messages %}
-                    <p style="color: red; font-weight:bold;">{{ message }}</p>
-                {% endfor %}
                 <p>Already have an account? <span class="toggle-link" onclick="toggleForm()">Login</span></p>
             </form>
         </div>
@@ -322,6 +318,19 @@
         function toggleForm() {
             const container = document.querySelector('.container');
             container.classList.toggle('active');
+        }
+
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("bx-show");
+                icon.classList.add("bx-hide");
+            } else {
+                input.type = "password";
+                icon.classList.remove("bx-hide");
+                icon.classList.add("bx-show");
+            }
         }
     </script>
 </body>
