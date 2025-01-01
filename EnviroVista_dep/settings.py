@@ -81,6 +81,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'EnviroVista_dep.wsgi.application'
 
+ASGI_APPLICATION = 'EnviroVista_dep.asgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
