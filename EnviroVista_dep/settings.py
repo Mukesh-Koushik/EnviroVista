@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-bh5!efdhv0g1$&%7#2h&(!16rje%(%=b0x+6*m39auu=%^9$0w
 DEBUG = False
 # DEBUG = True
 
-ALLOWED_HOSTS = ["envirovista.onrender.com", "localhost"]
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["envirovista.onrender.com", "localhost"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
