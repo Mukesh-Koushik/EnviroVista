@@ -79,6 +79,10 @@ TEMPLATES = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://envirovista.onrender.com/',
+]
+
 WSGI_APPLICATION = 'EnviroVista_dep.wsgi.application'
 
 ASGI_APPLICATION = 'EnviroVista_dep.asgi.application'
