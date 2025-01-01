@@ -1,1 +1,1 @@
-web: daphne -u /tmp/daphne.sock EnviroVista_dep.asgi:application --bind 0.0.0.0 --port $PORT
+web: daphne EnviroVista_dep.asgi:application --bind 0.0.0.0 --port $PORT
