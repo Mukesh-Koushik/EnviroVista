@@ -84,6 +84,11 @@ WSGI_APPLICATION = 'EnviroVista_dep.wsgi.application'
 ASGI_APPLICATION = 'EnviroVista_dep.asgi.application'
 
 
+#Explicitly setting the port for render
+os.environ['DJANGO_ALLOWED_HOSTS'] = '*'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'EnviroVista_dep.settings'
+
+
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
