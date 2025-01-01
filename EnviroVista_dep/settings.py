@@ -81,6 +81,8 @@ TEMPLATES = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://envirovista.onrender.com/',
+    'https://envirovista.onrender.com',
+    'https://www.envirovista.onrender.com',
 ]
 
 WSGI_APPLICATION = 'EnviroVista_dep.wsgi.application'
