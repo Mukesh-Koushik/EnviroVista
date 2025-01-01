@@ -81,7 +81,9 @@ TEMPLATES = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://envirovista.onrender.com/',
+    'http://envirovista.onrender.com/',
     'https://envirovista.onrender.com',
+    'http://envirovista.onrender.com',
     'https://www.envirovista.onrender.com',
 ]
 
