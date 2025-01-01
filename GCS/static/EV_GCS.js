@@ -62,7 +62,7 @@ currentIndex = (currentIndex < slide.length - 1) ? currentIndex + 1 : 0;
 updateSlider();
     }, 3000);
 
-
+/* */
 let cart = [];
 
 const cartToggle = document.querySelector('.cart-toggle');
@@ -159,7 +159,8 @@ cart.forEach(item => {
     `;
     orderList.appendChild(orderItem);
 });
-}
+} /* */
+
 
 document.addEventListener('touchstart', function(event) {
     event.preventDefault();

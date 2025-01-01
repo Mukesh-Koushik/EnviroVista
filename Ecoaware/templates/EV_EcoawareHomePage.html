@@ -6,10 +6,10 @@
         <head>
             <title>Ev Home</title>
             <meta charset="utf-8">
-            <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
+            <link rel="icon" type="image/png" href="{% static 'Logo.png' %}">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-            <link rel="stylesheet" href="{% static 'css/EV_EcoawareHomePage.css' %}">
+            <link rel="stylesheet" href="{% static 'EV_EcoawareHomePage.css' %}">
         </head>
     </head>
     <body>
@@ -17,7 +17,7 @@
             <nav>
                 <!-- Logo Section Outside Sidebar -->
                 <div class="logo">
-                    <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo">
+                    <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
                     <span class="logoName">EnviroVista</span>
                 </div>
 
@@ -54,7 +54,7 @@
         <!-- Sidebar for Mobile View -->
         <div class="sidebar">
             <div class="logoMoblieView">
-                <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo">
+                <img src="{% static 'Logo.png' %}" alt="EnviroVista Logo">
                 <span class="logoName">EnviroVista</span>
             </div>
             <ul>
@@ -91,11 +91,11 @@
                 </p>
             </div>
 
-            <div  class="exploreGroup">                    
+            <div class="exploreGroup">                    
                 <h1 style="color: #66B539;">Explore Categories Of Group Tasks</h1>
             </div>
-            {% for grp in grps %}
             <div class="mcategories">
+                {% for grp in grps %}
                 <div class="mcard">
                     <img src="{{ grp.image.url }}" alt="Protect Our Planet">
                     <div class="taskDetails">
@@ -103,12 +103,13 @@
                         <button>Explore</button>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            
 
             <h1 style="color: #66B539;" class="exploreHead">Explore Categories Of Individual Tasks</h1>
-            {% for ind in inds %}
             <div class="mcategories">
+                {% for ind in inds %}
                 <div class="mcard">
                     <img src="{{ ind.image.url }}" alt="Protect Our Planet">
                     <div class="taskDetails">
@@ -116,8 +117,8 @@
                         <button>Explore</button>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </section >
         <section class="footermain">
             <footer>
@@ -128,7 +129,7 @@
                 <div class="fsec2">
                     <h1>Useful Links</h1>
                     <ul>
-                        <li><a href="{% url 'ecoawarehome' %}">EcoAware</a></li>
+                        <li><a href="{% url 'ecoaware' %}">EcoAware</a></li>
                         <li><a href="{% url 'gcshome' %}">GCS</a></li>
                         <li><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
@@ -161,6 +162,6 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
-        <script src="{% static 'js/EV_EcoawareHomePage.js' %}"></script>
+        <script src="{% static 'EV_EcoawareHomePage.js' %}"></script>
     </body>
 </html>
