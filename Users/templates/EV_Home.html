@@ -152,7 +152,7 @@
                 <button id="prevBtn">&#10094;</button> <!-- Left Button -->
                 <div class="playlist-wrapper">
                     <div class="playlist">
-                        <video class="video-thumb" onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
+                        <video class="video-thumb" data-src="{% static 'Mukesh_aboutev.mp4' %}" onclick="changeVideo(this.getAttribute('data-src'))">
                             <source src="{% static 'Mukesh_aboutev.mp4' %}" type="video/mp4">
                         </video>
                         <video class="video-thumb" onclick="changeVideo('https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4')">
