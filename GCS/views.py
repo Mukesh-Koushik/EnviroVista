@@ -301,6 +301,8 @@ def orderTracking(request, order_id):
 #     return render(request, 'EV_GCS_CartOverViewPage.html', {"cart": cart, "total_price": total_price})
 
 
+def precheckout(request):
+    return render(request, "EV_PreCheckout.html")
 
 # def save_cart(request):
 #     if request.method == 'POST':

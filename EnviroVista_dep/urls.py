@@ -49,7 +49,8 @@ urlpatterns = [
     path('ordertracking/', orderTracking, name='ordertracking'),
     #path('cartoverview/', gcscartoverview, name='cartoverview'),
     path('checkout/', checkout, name='checkout'),
-    path('payment/', cartpayment, name='cartpayment'),
+    path('payment/', cartpayment, name='cartpayment1'),
+    path('precheckout/', precheckout, name='cartpayment'),
     #path('updateaddress/', updateaddress, name='updateaddress'),
     path('ecoaware/', taskshome, name='ecoaware'),
     # path('ecoaware/submit/<int:task_id>/', ecoaware_display, name='ecoaware_display'),
@@ -60,8 +61,8 @@ urlpatterns = [
     path('upload/', submission, name='submission'),
     path('search/', gcssearch, name='searchdb'),
     path('ideaforge/', ideaforge, name='ideaforge'),
-    path('profile/', profile, name='profile'),
-    path('editprofile/', profileedit, name='editprofile'),
+    path('profile/', login_required(profile), name='profile'),
+    path('editprofile/', login_required(profileedit), name='editprofile'),
 
 
     #path('filter/<slug>:<slug>', gcsfilter, name="gcsfilter")

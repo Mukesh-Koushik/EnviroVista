@@ -88,11 +88,11 @@
                 <button class="search-button"><i class="fas fa-search"></i></button>
 				</form>
             </div>
-            <div id="cart-items">
+            <!-- <div id="cart-items">
                 {% for item_id, item in request.session.cart.items %}
                     <p>{{ item.name }} - {{ item.quantity }} x ₹{{ item.price_per_item }}</p>
                 {% endfor %}
-            </div>
+            </div> -->
 
             <div class="cart_btns">
                 <a href="#" class="cart-toggle" data-url="{% url 'viewcart' %}"><i class="fas fa-shopping-cart"></i><span>cart</span></a>

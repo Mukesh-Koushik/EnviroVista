@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from Users.templates import *
 from .models import CustomUser
 from GCS.models import *
+from Ecoaware.models import *
 from django.contrib import messages
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login as auth_login
@@ -11,7 +12,7 @@ from django.contrib.auth import logout
 
 def login_signup(request):
     return render(request, 'Login_Signup.html')
-
+ 
 def home(request):
     return render(request, "EV_Home.html")
 
@@ -70,6 +71,8 @@ def profileedit(request):
     if request.method == "POST":
         pass
     return render(request, 'EV_ProfileEdit.html')
+
+
 
 
 def my_logout(request):
