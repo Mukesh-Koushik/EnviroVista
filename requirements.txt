@@ -27,6 +27,7 @@ ecapture==2.0.2
 et_xmlfile==2.0.0
 ExifRead==3.0.0
 filelock==3.15.4
+ffmpeg
 gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.5
