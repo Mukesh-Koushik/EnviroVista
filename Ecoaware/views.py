@@ -118,7 +118,7 @@ def upload_task(request):
         if filename:
             response_data["Video"] = filename
 
-        return render(request, "EV_EcoawareHomePage.html")
+        return redirect(taskshome)
 
     return render(request, "EV_Ideaforge.html")
 
