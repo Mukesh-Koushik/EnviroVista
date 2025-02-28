@@ -36,10 +36,10 @@ body {
     padding: 0;
 }
 .logoName {
+    margin: -1rem;
     font-size: 2rem;
     font-weight: bold;
     color: #66B539;
-    margin: -1rem;
 }
 nav {
     display: flex;
@@ -265,7 +265,6 @@ nav li a:active {
     height: 60%;
     object-fit: cover;
     border-radius: 10px;
-
 }
 .card h3 {
     font-size: 1.5rem;
@@ -303,22 +302,84 @@ nav li a:active {
     color: #333333;
     transition: 0.9s ease;
 }
+
 /*DEMO VIDEO START*/
-.DemoVideo{
+.video-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    margin-top: 2rem;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem;
 }
-video {
+
+/* Main Video */
+.main-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-video video {
     width: 80%;
-    height: 80%;
     border-radius: 10px;
-    box-shadow: 0 2px 4px #8ecd77;
 }
+
+/* Playlist Section */
+.video-playlist {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    width: 65%;
+    overflow: hidden;
+}
+
+.playlist-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.playlist {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+    width: max-content;
+}
+
+.video-thumb {
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+}
+
+.video-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Buttons */
+#prevBtn, #nextBtn {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+#prevBtn { left: -30px; }
+#nextBtn { right: -30px; }
+
 /*DEMO VIDEO END*/
 /*ABOUT US SECTION*/
 .AboutUsSection{
@@ -400,12 +461,12 @@ video {
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
+    transition: 0.9s ease;
     border: 2.2px solid #333333;
 }
 .JoinOurJourney button:hover{
     background-color: #f4f4f4;
     color: #66B539;
-    transition: 0.9s ease;
 }
 
 .JoinOurJourney a{
@@ -507,6 +568,7 @@ footer {
     }
     .logoName{
         font-size:1.8rem;
+        margin: -1rem;
     }
     nav{
         padding:1rem;
@@ -574,7 +636,6 @@ footer {
         font-size: 1.5rem;
         font-weight: bold;
         color: #66B539;
-        margin: -1rem;
     }
     .sidebar li a {
         color: #333333;
@@ -592,7 +653,7 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 1rem;
-        min-height: calc(100vh - 60px);
+        min-height: 50vh;
         padding-left: 1rem;
         padding-right: 1rem;
         width: 100%;

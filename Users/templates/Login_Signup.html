@@ -255,18 +255,22 @@
                 <img src="{% static 'images/Logo.png' %}" alt="EV Logo">
                 <h1>EnviroVista <span>Login</span></h1>
             </div>
-            <form>
+            <form method="post" action="{% url 'logindb' %}">
+                {% csrf_token %}
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" placeholder="Username" name="username" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" id="login-password" required>
+                    <input type="password" placeholder="Password" name="password" id="login-password" required>
                     <!--<i class='bx bxs-lock-alt'></i>-->
                     <i class='bx bx-show show-password' onclick="togglePassword('login-password', this)"></i>
                 </div>
                 <button type="submit">Login</button>
                 <p>Don't have an account? <span class="toggle-link" onclick="toggleForm()">Sign Up</span></p>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
             </form>
         </div>
 
@@ -277,30 +281,31 @@
                 <h1>EnviroVista <span>Registration</span></h1>
             </div>
             
-            <form>
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
                 <div class="input-box">
-                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="First Name" name="fname" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" placeholder="Last Name" name="lname" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" placeholder="Email" name="email" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Mobile Number" required>
+                    <input type="text" placeholder="Mobile Number" name="num" required>
                     <i class='bx bxs-phone'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" id="signup-password" required>
+                    <input type="password" placeholder="Password" name="password" id="signup-password" required>
                     <!--<i class='bx bxs-lock-alt'></i>-->
                     <i class='bx bx-show show-password' onclick="togglePassword('signup-password', this)"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Confirm Password" id="signup-confirm-password" required>
+                    <input type="password" placeholder="Confirm Password" name="conf_pass" id="signup-confirm-password" required>
                     <!--<i class='bx bxs-lock-alt'></i>-->
                     <i class='bx bx-show show-password' onclick="togglePassword('signup-confirm-password', this)"></i>
                 </div>
@@ -310,6 +315,9 @@
                 </div>
                 <button type="submit">Sign Up</button>
                 <p>Already have an account? <span class="toggle-link" onclick="toggleForm()">Login</span></p>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
             </form>
         </div>
     </div>

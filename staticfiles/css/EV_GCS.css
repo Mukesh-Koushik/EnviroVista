@@ -397,7 +397,7 @@ nav li a:active {
     border: none;
     padding: 1rem;
     cursor: pointer;
-    z-index: 15;
+    z-index: 1;
     font-size: 2rem;
     border: 1px solid #2d6210;
     border-radius: 1rem;
@@ -582,7 +582,7 @@ nav li a:active {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 999;
     max-height: 400px;
     overflow-y: auto;
     display: none; 
@@ -652,7 +652,7 @@ nav li a:active {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
+    z-index: 999;
     max-height: 400px;
     overflow-y: auto;
     display: none;

@@ -9,7 +9,9 @@
             <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            <!-- <link rel="stylesheet" href="{% static 'EV_GCS_CartOverViewPage.css' %}"> -->
             <link rel="stylesheet" href="{% static 'css/EV_GCS_CartOverViewPage.css' %}">
+
         </head>
     </head>
     <body>
@@ -85,23 +87,25 @@
 
             <div class="CartOverView">
                 <div class="products">
+                    {% for item in cart %}
                     <div class="product-item">
-                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product Image">
+                        <img src="{{ item.product_image }}" alt="Product Image">
                         <div class="product-details">
-                            <h4>Product Name</h4>
-                            <p>Price: $0</p>
-                            <p>Quantity: 0</p>
+                            <h4>{{ item.product_name }}</h4>
+                            <p>Price: ${{ item.price_per_item }}</p>
+                            <p>Quantity: {{ item.quantity }}</p>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
 
 
                 <div class="summary">
                     <h3>Order Summary</h3>
-                    <p>Subtotal: $0</p>
+                    <p>Subtotal: ${{ total_price }}</p>
                     <p>Tax: $0</p>
-                    <div class="total">Total: $0</div>
-                    <a href="payment.html" class="btn-checkout">Proceed to Checkout</a>
+                    <div class="total">Total: ${{ total_price }}</div>
+                    <a href="{% url 'cartpayment' %}" class="btn-checkout">Proceed to Checkout</a>
                 </div>
 
             </div>
@@ -150,5 +154,6 @@
             </div>
         </section>
         <script src="{% static 'js/EV_GCS_CartOverViewPage.js' %}"></script>
+        <!-- <script src="{% static 'EV_GCS_CartOverViewPage.js' %}"></script> -->
     </body>
 </html>

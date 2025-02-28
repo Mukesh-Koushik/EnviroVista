@@ -9,6 +9,7 @@
             <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            <!-- <link rel="stylesheet" href="{% static 'css/EV_TaskUploadPage.css' %}"> -->
             <link rel="stylesheet" href="{% static 'css/EV_TaskUploadPage.css' %}">
         </head>
     </head>
@@ -80,15 +81,16 @@
             </ul>
         </div>
         <section class="mainContent">
-            <form action="#" id="taskform">
-                <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Task Image" class="taskimg">
+            <form action="{% url 'upload_task' %}" id="taskform" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <img src="{{ task.image.url }}" alt="Task Image" class="taskimg">
                 <span>
-                <strong><label>Title:</label></strong><label id="tftitle">Plant a Tree</label><br> <br>
+                <strong><label>Title:</label></strong><label id="tftitle">{{ task.name }}</label><br> <br>
                 </span>
                 <span>
                <strong><label>Description:</label></strong>
                <label id="tfdesc">
-                    Our ecosystem thrives and depends on the trees around us. Go ahead and plant a tree to help the ecosystem and send us a video of it to earn 5GC coins!!!! 
+                    {{ task.description }}
                 <br>
                 <br>              
                 </label>
@@ -164,6 +166,7 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
+        <!-- <script src="{% static 'js/EV_TaskUploadPage.js' %}"></script> -->
         <script src="{% static 'js/EV_TaskUploadPage.js' %}"></script>
     </body>
 </html>

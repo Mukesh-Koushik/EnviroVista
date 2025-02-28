@@ -24,14 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bh5!efdhv0g1$&%7#2h&(!16rje%(%=b0x+6*m39auu=%^9$0w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ["envirovista.onrender.com", "localhost"]
 ALLOWED_HOSTS = ["*"]
 
 #Render's port
-PORT = os.environ.get("PORT", 8000)
+# PORT = os.environ.get("PORT", 8000)
 
 
 # Application definition
@@ -92,36 +92,52 @@ WSGI_APPLICATION = 'EnviroVista_dep.wsgi.application'
 ASGI_APPLICATION = 'EnviroVista_dep.asgi.application'
 
 
-#Explicitly setting the port for render
-os.environ['DJANGO_ALLOWED_HOSTS'] = '*'
-os.environ['DJANGO_SETTINGS_MODULE'] = 'EnviroVista_dep.settings'
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+
+# #Explicitly setting the port for render
+# os.environ['DJANGO_ALLOWED_HOSTS'] = '*'
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'EnviroVista_dep.settings'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'ev_db',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ev_db_kwt5',
-        'USER': 'ev_db_kwt5_user',
-        'PASSWORD': 'nlZGLeL3hmPJ4jySyf3U0DUuXgrF1NVQ',
-        'HOST': 'dpg-ctook0q3esus73dbs5h0-a',
-        'PORT': '5432',  # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ev_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'db_ev',
+#         'USER': 'db_ev_user',
+#         'PASSWORD': 'RKFALqYbBW5MUPZngzsfq1ck5LKFBrjE',
+#         'HOST': 'dpg-cv0s51bqf0us73a1t1e0-a',
+#         'PORT': '5432',  # Default PostgreSQL port
+#     }
+# }
 
 
 
@@ -183,3 +199,25 @@ LOGOUT_REDIRECT_URL = '/home/'
 
 SESSION_COOKIE_SECURE = True  # Set this to True if using HTTPS
 CSRF_COOKIE_SECURE = True  # Set this to True if using HTTPS
+
+#Session settings
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Store sessions in the database
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Keep sessions active across browser restarts
+SESSION_COOKIE_AGE = 30 * 24 * 60 * 60  # 30 days in seconds
+MIDDLEWARE_DEBUG = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}

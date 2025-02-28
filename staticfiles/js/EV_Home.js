@@ -44,3 +44,24 @@ setInterval(() => {
 document.addEventListener('touchstart', function(event) {
     event.preventDefault();
 }, false);
+
+        // Function to change the main video
+        function changeVideo(videoSrc) {
+            document.getElementById("mainVideo").src = videoSrc;
+            document.getElementById("mainVideo").play();
+        }
+
+        // Playlist scrolling logic
+        const playlistWrapper = document.querySelector(".playlist-wrapper");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        // Scroll left
+        prevBtn.addEventListener("click", () => {
+            playlistWrapper.scrollLeft -= 200;
+        });
+
+        // Scroll right
+        nextBtn.addEventListener("click", () => {
+            playlistWrapper.scrollLeft += 200;
+        });

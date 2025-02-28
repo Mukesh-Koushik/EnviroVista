@@ -10,6 +10,7 @@
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
             <link rel="stylesheet" href="{% static 'css/EV_IdeaForge.css' %}">
+            <!-- <link rel="stylesheet" href="{% static 'EV_IdeaForge.css' %}"> -->
         </head>
     </head>
     <body>
@@ -80,7 +81,8 @@
             </ul>
         </div>
         <section class="mainContent">
-        <form id="uploadform" action="">
+        <form id="uploadform" action="{% url 'ideaforgesub' %}" method="post">
+            {% csrf_token %}
             <h1>Welcome to IdeaForge</h1>
             <h2>Convey your creative ideas into incredible task and step forward to develop and upgrade the nature , be one of the best and on GC coins.</h2>
             <br>
@@ -91,9 +93,9 @@
                 4.No duplications of already existing tasks are allowed. <br>
                 5.The task should not involve any kind of discrimination, other offensive characteristics.</p>
             <label for="tname">Task Name</label>
-            <input type="text" maxlength="20" id="tname">
+            <input type="text" maxlength="20" id="tname" name="name"  >
             <label for="tdesc">Description about task</label>
-            <textarea id="tdesc" placeholder="enter description of task"></textarea>
+            <textarea id="tdesc" placeholder="enter description of task" name="desc"></textarea>
             <label for="uploadfile" id="uploadvideo">upload video</label>
             <input type="file" id="uploadfile" name = 'video_file'>
             <button type="submit" id="sbmit">Submit</button>
@@ -141,6 +143,7 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
+        <!-- <script src="{% static 'js/EV_IdeaForge.js' %}"></script> -->
         <script src="{% static 'js/EV_IdeaForge.js' %}"></script>
     </body>
 </html>

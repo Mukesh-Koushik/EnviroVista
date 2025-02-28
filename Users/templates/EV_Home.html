@@ -2,13 +2,12 @@
 
 <html>
     <head>
-        <title>Ev</title>
+        <title>Ev Home</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <!-- <link rel="icon" type="image/png" href="{% static 'Logo.png' %}"> -->
         <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link rel="stylesheet" href="{% static 'css/EV_Home.css' %}">   
+        <link rel="stylesheet" href="{% static 'css/EV_Home.css' %}">
     </head>
     <body>
         <section class="navbarsection">
@@ -74,7 +73,6 @@
                 {% else %}
                     <li><a href="{% url 'loginpage' %}">Login</a></li>
                 {% endif %}
-                <!-- <li><a href="#">login</a></li> -->
             </ul>
         </div>
 
@@ -115,7 +113,7 @@
                 <div class="card">
                   <img src="https://thedecisionlab.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fthedecisionlab%2Fd4e22d6a-a42e-478c-9ce0-022ac95dbf38_Play%2Bfor%2Bthe%2BPlanet.png%3Fauto%3Dcompress%2Cformat&w=3840&q=75" alt="Service 2">
                   <h3>Gamification:</h3>
-                  <p>We gamified the process of going eco-friendly and attaining a sustainable lifestyle .</p>
+                  <p>We gamified the process of going eco-friendly and attaining a sustainable lifestyle.</p>
                 </div>
                 <div class="card">
                   <img src="https://climatecarbon.com/wp-content/uploads/2022/07/World-Environment-Day1.webp" alt="Service 3">
@@ -140,12 +138,40 @@
               </div>
          <!--CARDS CONTAINER END-->   
         <!--DEMO VIDEO STRT-->
-        <section class="DemoVideo">
-            <video controls loop>
-                <source src="C:\Users\Karthik\Downloads\matt_devir--one_minute_drive.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-        </section>
+        <div class="video-container">
+            <!-- Main Video -->
+            <div class="main-video">
+                <video id="mainVideo" controls autoplay>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+    
+            <!-- Video Playlist -->
+            <div class="video-playlist">
+                <button id="prevBtn">&#10094;</button> <!-- Left Button -->
+                <div class="playlist-wrapper">
+                    <div class="playlist">
+                        <video class="video-thumb" onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4')">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <video class="video-thumb" onclick="changeVideo('https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4')">
+                            <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
+                        </video>
+                        <video class="video-thumb" onclick="changeVideo('https://samplelib.com/lib/preview/mp4/sample-5s.mp4')">
+                            <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                        </video>
+                        <video class="video-thumb" onclick="changeVideo('https://www.w3schools.com/html/movie.mp4')">
+                            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                        </video>
+                        <video class="video-thumb" onclick="changeVideo('https://filesamples.com/samples/video/mp4/sample_640x360.mp4')">
+                            <source src="https://filesamples.com/samples/video/mp4/sample_640x360.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <button id="nextBtn">&#10095;</button> <!-- Right Button -->
+            </div>
+        </div>
         <!--DEMO VIDEO STRT-->
         <section class="AboutUsSection"> 
             <h1>About Us</h1>
@@ -164,7 +190,7 @@
             <div class="JoinOurJourney">
                 <h1>Join Our Journey</h1><br>
                 <p>If you're passionate about environmental sustainability and want to be part of a community that's making a difference, join us!</p> <br>
-                <a href="#"><button>Login</button></a>
+                <a href="{% url 'loginpage' %}"><button>Login</button></a>
             </div>
         </section>
          <!-- Main Content End-->
@@ -195,8 +221,8 @@
                     <h1>Contact Us</h1>
                     <ul>
                         <li><a href="#">About Us</a></li>
-                        <p><strong>Phone:</strong> +91 6302041057</p>
-                        <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                        <p><strong>Phone:</strong> +91 95155 29584</p>
+                        <p><strong>Email:</strong> envirovistaaaa@gmail.com</p>
                     </ul>
                     <div class="footer-links">
                         <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>

@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
     phone_no = models.CharField(max_length=15, blank=True, null=True)
     profile_pic = models.ImageField(upload_to='profile_pics/', default = 'profile_pics/default_pic.jpeg')
     bio = models.TextField(blank=True, null=True)
-    location = models.CharField(max_length = 30, blank=True, default = "Not Entered yet")
+    location = models.TextField(default = "Enter your address")
     gc_coins = models.IntegerField(default=0)
 
 

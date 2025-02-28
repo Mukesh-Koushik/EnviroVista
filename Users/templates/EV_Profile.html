@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="{% static 'css/EV_Profile.css' %}"> -->
     <link rel="stylesheet" href="{% static 'css/EV_Profile.css' %}">
 </head>
 
@@ -123,7 +124,7 @@
         <div id="fboxout">
             <div id="fboxpd">
                 <label style="font-size: 1.5rem;margin-bottom: 15px;">Perform Tasks</label>
-                <label style="color:rgb(92, 88, 88)">participate in our tasks to contribute to the global health.<br><a href="taskhomepage.html">>>Explore More</a></label>
+                <label style="color:rgb(92, 88, 88)">participate in our tasks to contribute to the global health.<br><a href="{% url 'ecoaware' %}">>>Explore More</a></label>
             </div>
             <div id="fboxpd">
                 <label style="font-size: 1.5rem;margin-bottom: 15px;">GCC Exchange</label>
@@ -131,7 +132,7 @@
             </div>
             <div id="fboxpd">
                 <label style="font-size: 1.5rem;margin-bottom: 15px;">Your Orders</label>
-                <label style="color:rgb(92, 88, 88)">keep track of your orders history.<br><a href="taskhomepage.html">>>Explore More</a></label>
+                <label style="color:rgb(92, 88, 88)">keep track of your orders history.<br><a href="{% url 'yourorders' %}">>>Explore More</a></label>
             </div>
             <div id="fboxpd">
                 <label style="font-size: 1.5rem;margin-bottom: 15px;">Return and refund</label>
@@ -560,6 +561,7 @@
             <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
         </div>
     </section>
+    <!-- <script src="{% static 'js/EV_Profile.js' %}"></script> -->
     <script src="{% static 'js/EV_Profile.js' %}"></script>
 </body>
 

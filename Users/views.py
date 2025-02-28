@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from Users.templates import *
 from .models import CustomUser
+from GCS.models import *
 from django.contrib import messages
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login as auth_login
@@ -66,6 +67,8 @@ def profile(request):
     return render(request, 'EV_Profile.html', {"user": user})
 
 def profileedit(request):
+    if request.method == "POST":
+        pass
     return render(request, 'EV_ProfileEdit.html')
 
 

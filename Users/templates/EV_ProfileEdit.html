@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <!-- <link rel="stylesheet" href="{% static 'css/EV_ProfileEdit.css' %}"> -->
         <link rel="stylesheet" href="{% static 'css/EV_ProfileEdit.css' %}">
     </head>
     <body>
@@ -113,29 +114,30 @@
                     <h3>Address</h3>
                 </div>
                 <div>
+                    
                     <label for="door">Door No</label>
-                    <input type="text" id="door" placeholder="Enter door number" required>
+                    <input type="text" id="door" value="{{ address.door_no }}" name="door_no" required>
                 </div>
                 <div>
                     <label for="locality">Locality</label>
-                    <input type="text" id="locality" placeholder="Enter locality" required>
+                    <input type="text" id="locality" value="{{ address.locality }}" name="locality" required>
                 </div>
                 <div>
                     <label for="landmark">Landmark <span class="optional">(optional)</span></label>
-                    <input type="text" id="landmark" placeholder="Enter landmark" required>
+                    <input type="text" id="landmark" value="{{ address.landmark }}" name="landmark" required>
                 </div>
                 <div>
                     <label for="city">City</label>
-                    <input type="text" id="city" placeholder="Enter city" required>
+                    <input type="text" id="city"  value="{{ address.city }}" name="city" required>
                 </div>
                 <div>
                     <label for="pincode">Pincode</label>
-                    <input type="text" id="pincode" placeholder="Enter pincode" required>
+                    <input type="text" id="pincode" value ="{{ address.pincode }}" name="pincode" required>
                 </div>
                 <div>
                     <label for="state">State</label>
                     <select title="state" id="states" name="states">
-                    <option value="">-- Select a State/UT --</option>
+                    <option value="AP" name="State" >-- Select a State/UT --</option>
                             <option value="AP">Andhra Pradesh</option>
                             <option value="AR">Arunachal Pradesh</option>
                             <option value="AS">Assam</option>
@@ -229,6 +231,7 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
+        <!-- <script src="{% static 'js/EV_ProfileEdit.js' %}"></script> -->
         <script src="{% static 'js/EV_ProfileEdit.js' %}"></script>
     </body>
 </html>

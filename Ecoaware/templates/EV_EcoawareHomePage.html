@@ -6,10 +6,12 @@
         <head>
             <title>Ev Home</title>
             <meta charset="utf-8">
+            <!-- <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}"> -->
             <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
             <link rel="stylesheet" href="{% static 'css/EV_EcoawareHomePage.css' %}">
+            <!-- <link rel="stylesheet" href="{% static 'EV_EcoawareHomePage.css' %}"> -->
         </head>
     </head>
     <body>
@@ -17,6 +19,7 @@
             <nav>
                 <!-- Logo Section Outside Sidebar -->
                 <div class="logo">
+                    <!-- <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo"> -->
                     <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo">
                     <span class="logoName">EnviroVista</span>
                 </div>
@@ -54,6 +57,7 @@
         <!-- Sidebar for Mobile View -->
         <div class="sidebar">
             <div class="logoMoblieView">
+                <!-- <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo"> -->
                 <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo">
                 <span class="logoName">EnviroVista</span>
             </div>
@@ -100,7 +104,7 @@
                     <img src="{{ grp.image.url }}" alt="Protect Our Planet">
                     <div class="taskDetails">
                         <label>{{ grp.name }}: {{ grp.description }}</label>
-                        <button>Explore</button>
+                        <a href="{% url 'submit_task' grp.id %}"><button>Explore</button></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -114,7 +118,7 @@
                     <img src="{{ ind.image.url }}" alt="Protect Our Planet">
                     <div class="taskDetails">
                         <label>{{ ind.name }}: {{ ind.description }}</label>
-                        <button>Explore</button>
+                        <a href="{% url 'submit_task' ind.id %}"><button>Explore</button></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -162,6 +166,7 @@
                 <p>&copy; 2024 EnviroVista. All Rights Reserved.</p>
             </div>
         </section>
+        <!-- <script src="{% static 'js/EV_EcoawareHomePage.js' %}"></script> -->
         <script src="{% static 'js/EV_EcoawareHomePage.js' %}"></script>
     </body>
 </html>

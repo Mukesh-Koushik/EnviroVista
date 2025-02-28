@@ -10,6 +10,7 @@
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
             <link rel="stylesheet" href="{% static 'css/EV_GCS_PaymentPage.css' %}">
+            <!-- <link rel="stylesheet" href="{% static 'EV_GCS_PaymentPage.css' %}"> -->
         </head>
     </head>
     <body>
@@ -79,46 +80,54 @@
                 <!-- <li><a href="#">login</a></li> -->
             </ul>
         </div>
-
+        
         <section class="mainContent">
             <div class="payment-page">
                 <h1>Welcome to Checkout</h1>
                 <section class="address-confirmation">
                   <h2>Confirm Your Address</h2>
+                  <!-- <form method = "post" action="" > -->
+                    <!-- {% csrf_token %} -->
+                  <textarea id="address-display" placeholder="Enter your address here..." value = {{address}} ></textarea>
                   
-                  <textarea id="address-display" placeholder="Enter your address here..." readonly>DoorNo, Street, City, State, Country, Pincode, Mobile Number</textarea>
+                  <a href="{% url 'editprofile' %}"><button id="change-button">Change</button></a>
+                  <!-- <button id="save-button" style="display: none;">Save</button> -->
+                <!-- </form> -->
                   
-                  <button id="change-button">Change</button>
-                  <button id="save-button" style="display: none;">Save</button>
                 </section>
             
                 <section class="payment-method">
                   <h2>Select Payment Method</h2>
                   <label>
-                    <input type="radio" name="payment" value="card" unchecked> Cash On Delevery (COD)
+                    <input type="radio" name="payment" value="card" checked> Cash On Delevery (COD)
                   </label>
                 </section>
-            
+
                 <section class="order-details">
                   <h2>Order Summary</h2>
                   <div class="products">
+                    {% for item in cart %}
                     <div class="product-item">
-                        <img src="https://images3.alphacoders.com/265/thumb-1920-265799.jpg" alt="Product Image">
+                        <img src="{{ item.product_image }}" alt="Product Image">
                         <div class="product-details">
-                            <h4>Product Name</h4>
-                            <p>Price: $0</p>
-                            <p>Quantity: 0</p>
+                            <h4>{{ item.product_name }}</h4>
+                            <p>Price: ${{ item.price_per_item }}</p>
+                            <p>Quantity: {{ item.quantity }}</p>
                         </div>
                     </div>
+                    {% endfor %}
                   </div>
-                  <p>Shipping: $5.00</p>
-                  <p><strong>Total: $30.00</strong></p>
+                  <p>Shipping: Free</p>
+                  <p><strong>Total: ${{ total_price }}</strong></p>
                 </section>
             
                 <!-- Checkout Button -->
-                <button class="checkout-button">Proceed to Checkout</button>
+                <a href="{% url 'place_order' %}"><button class="checkout-button">Proceed to Checkout</button></a>
               </div>
-
+              <form id="order-form" >
+                {% csrf_token %}
+            </form>
+            
         </section>
         <section class="footermain">
             <footer>
@@ -164,4 +173,6 @@
         </section>
         <script src="{% static 'js/EV_GCS_PaymentPage.js' %}"></script>
     </body>
+    <!-- <script src="{% static 'EV_GCS_PaymentPage.js' defer %}"></script> -->
+
 </html>

@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.timezone import now
 from Users.models import *
+from EnviroVista_dep import settings
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -50,6 +51,18 @@ class Product(models.Model):
         return self.stock > 0
 
 
+class CartItem(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=1)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def total_price(self):
+        return self.product.price * self.quantity
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name}"
+
+
 class Address(models.Model):
     user_id=models.ForeignKey(CustomUser, on_delete=models.PROTECT)
     username=models.CharField(max_length=50)
@@ -71,9 +84,20 @@ class Orders(models.Model):
     class Mop_Choices(models.TextChoices):
         COD = "COD", "Cash on Delivery"
         ONLINE = "ONLINE", "Online Payment"
+    
+    STATUS_CHOICES = [
+        ('ordered', 'Ordered'),
+        ('shipped', 'Shipped'),
+        ('out_for_delivery', 'Out for Delivery'),
+        ('delivered', 'Delivered'),
+    ]
+
+
     user_id=models.ForeignKey(CustomUser, on_delete=models.PROTECT)
     prod_id=models.ForeignKey(Product, on_delete=models.PROTECT)
+    quantity = models.PositiveIntegerField(default=1)
     ordered_at=models.DateTimeField(auto_now_add= True, editable = False)
+    order_status = models.CharField(max_length= 20, choices = STATUS_CHOICES, default= "Ordered")
     mode_of_payment=models.CharField(max_length= 10, choices=Mop_Choices.choices, default=Mop_Choices.COD)
 
     class Meta:
