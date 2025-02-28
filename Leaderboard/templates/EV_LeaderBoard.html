@@ -1,12 +1,10 @@
-{% load static %}
-
 <html>
     <head>
         <title>Ev</title>
         <head>
             <title>Ev Home</title>
             <meta charset="utf-8">
-            <link rel="icon" type="image/png" href="{% static 'images/Logo.png' %}">
+            <link rel="icon" type="image/png" href="C:\Users\Karthik\Downloads\EV_Logo.png">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         </head>
@@ -126,7 +124,10 @@
             /*NAV BAR END*/
             .sidebar {
                 display: none;
-                position: absolute;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
                 top: 0;
                 right: 0;
                 background-color: #f4f4f4;
@@ -134,7 +135,6 @@
                 height: 100vh;
                 z-index: 1;
                 font-size:1.1rem;
-                padding: 10px 40px 40px 10px;
                 box-sizing: border-box;
                 box-shadow: 0 2px 4px #8ecd77;
                 transition: transform 0.4s ease-in-out;
@@ -158,6 +158,7 @@
                 text-decoration: none;
                 font-size: large;
                 display: block;
+                text-align: center;
             }
             .sidebar li a:hover {
                 background-color: hsl(84, 5%, 81%);
@@ -199,6 +200,61 @@
                 color: #66B539;
                 text-align: center;
                 padding: 1rem;
+            }
+
+            .leaderboard {
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                max-width: 600px;
+                text-align: center;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 1s ease-out forwards;
+                margin-bottom: 20px;
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            h2 {
+                color: #66B539;
+                animation: slideIn 1s ease-in-out;
+            }
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            p {
+                color: #555;
+                font-size: 16px;
+                line-height: 1.5;
+                animation: fadeIn 1.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            .highlight {
+                font-weight: bold;
+                color: #2c7c4f;
             }
             /*MAIN CONTENT END*/
             /*FOOTER START*/
@@ -315,19 +371,23 @@
                     margin-left: -3rem;
                 }
                 .sidebar {
-                    display: block; /* Sidebar visible on mobile */
+                    display: block; 
                     position: fixed;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
                     top: 0;
                     right: 0;
                     width: 50%;
                     height: 100vh;
+                    padding: 0.2rem;
                     background-color: #f4f4f4;
                     z-index: 1000;
-                    transform: translateX(100%); /* Hidden initially */
-                    transition: transform 0.5s ease; /* Smooth transition for sliding */
+                    transform: translateX(100%); 
+                    transition: transform 0.5s ease; 
                 }
                 .sidebar.show {
-                    transform: translateX(0); /* Slide into view */
+                    transform: translateX(0); 
                 }
                 .sidebar ul {
                     list-style-type: none;
@@ -337,6 +397,25 @@
                     display: block;
                     text-align: center;
                 }
+                .sidebar li a {
+                    color: #333333;
+                    padding: 14px 36px;
+                    text-decoration: none;
+                    font-size: large;
+                    display: flex;
+                    text-align: center;
+                }
+                .sidebar li a:hover {
+                    background-color: hsl(84, 5%, 81%);
+                    transition: 0.9s ease;
+                    border-radius: 1em;
+                }
+                .sidebar li a:active {
+                    background-color: hsl(84, 5%, 89%);
+                    transition: 0.9s ease;
+                    border-radius: 1em;
+                }
+
                 .logoMoblieView{
                     display: flex;
                     flex-wrap: wrap;
@@ -467,23 +546,19 @@
             <nav>
                 <!-- Logo Section Outside Sidebar -->
                 <div class="logo">
-                    <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo">
+                    <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
                     <span class="logoName">EnviroVista</span>
                 </div>
 
                 <!-- Desktop Navigation Links -->
                 <ul>
-                    <li class="hideonmobile"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="hideonmobile"><a href="{% url 'gcshome' %}">GCS</a></li>
-                    <li class="hideonmobile"><a href="{% url 'ecoaware' %}">EcoAware</a></li>
-                    <li class="hideonmobile"><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
-                    <li class="hideonmobile"><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
-                    <li class="hideonmobile"><a href="{% url 'profile' %}">Profile</a></li>
-                    {% if request.user.is_authenticated %}
-                        <li class="hideonmobile"><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                        <li class="hideonmobile"><a href="{% url 'loginpage' %}">Login</a></li>
-                    {% endif %}
+                    <li class="hideonmobile"><a href="#">Home</a></li>
+                    <li class="hideonmobile"><a href="#">GCS</a></li>
+                    <li class="hideonmobile"><a href="#">EcoAware</a></li>
+                    <li class="hideonmobile"><a href="#">IdeaForge</a></li>
+                    <li class="hideonmobile"><a href="#">LeaderBoard</a></li>
+                    <li class="hideonmobile"><a href="#">Profile</a></li>
+                    <li class="hideonmobile"><a href="#">login</a></li>
                 </ul>
                 
                 <!-- Menu Button for Mobile -->
@@ -504,7 +579,7 @@
         <!-- Sidebar for Mobile View -->
         <div class="sidebar">
             <div class="logoMoblieView">
-                <img src="{% static 'images/Logo.png' %}" alt="EnviroVista Logo">
+                <img src="C:\Users\Karthik\Downloads\EV_Logo.png" alt="EnviroVista Logo">
                 <span class="logoName">EnviroVista</span>
             </div>
             <ul>
@@ -515,21 +590,20 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'gcshome' %}">GCS</a></li>
-                <li><a href="{% url 'ecoaware' %}">EcoAware</a></li>
-                <li><a href="{% url 'ideaforge' %}">IdeaForge</a></li>
-                <li><a href="{% url 'leaderboard' %}">LeaderBoard</a></li>
-                <li><a href="{% url 'profile' %}">Profile</a></li>
-                {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                    <li><a href="{% url 'loginpage' %}">Login</a></li>
-                {% endif %}
+                <li><a href="#">Home</a></li>
+                <li><a href="#">GCS</a></li>
+                <li><a href="#">EcoAware</a></li>
+                <li><a href="#">IdeaForge</a></li>
+                <li><a href="#">LeaderBoard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">login</a></li>
             </ul>
         </div>
         <section class="mainContent">
-            <header>LeaderBoard Coming Soon...</header>
+            <div class="leaderboard">
+                <h2>Leaderboard - Coming Soon!</h2>
+                <p>We are working on updating the leaderboard. Stay tuned for the rankings of top eco-friendly contributors!</p>
+            </div>
         </section>
         <section class="footermain">
             <footer>
@@ -558,8 +632,8 @@
                     <h1>Contact Us</h1>
                     <ul>
                         <li><a href="#">About Us</a></li>
-                        <p><strong>Phone:</strong> +91 6302041057</p>
-                        <p><strong>Email:</strong> kirankumar76010@gmail.com</p>
+                        <p><strong>Phone:</strong> +91 95155 29584</p>
+                        <p><strong>Email:</strong> envirovistaaaa@gmail.com</p>
                     </ul>
                     <div class="footer-links">
                         <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
