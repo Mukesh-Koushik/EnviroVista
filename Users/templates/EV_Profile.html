@@ -88,7 +88,7 @@
         <div id="persdet">
             <div id="namepfp">
                 <div class="editlin">
-                    <img src="{{ user.profile_pic.url }}" id="pfp" alt="User Profile">
+                    <img src="{% static 'images/Logo.png' %}" id="pfp" alt="User Profile">
                     <i style="cursor: pointer;  font-size: 1.5rem;" id="editco" class="fa-regular fa-pen-to-square" onclick="window.location.href='editinfo.html'"></i>
                 </div>
                 <label id="username">{{ user.first_name }} {{ user.last_name }}</label>
@@ -132,7 +132,7 @@
             </div>
             <div id="fboxpd">
                 <label style="font-size: 1.5rem;margin-bottom: 15px;">Your Orders</label>
-                <label style="color:rgb(92, 88, 88)">keep track of your orders history.<br><a href="{% url 'yourorders' %}">>>Explore More</a></label>
+                <label style="color:rgb(92, 88, 88)">keep track of your orders history.<br><a href="{% url 'cartpayment' %}">>>Explore More</a></label>
             </div>
             <div id="fboxpd">
                 <label style="font-size: 1.5rem;margin-bottom: 15px;">Return and refund</label>
