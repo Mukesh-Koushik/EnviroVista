@@ -242,20 +242,20 @@ nav li a:active {
 }
 
 /*Slider*/
-.section1_image_slider {
+/* .section1_image_slider {
     display: flex;
     flex-wrap: wrap;
     position: relative;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50%;
+    height: 100%;
     overflow: hidden;
     position: relative;    
     gap: 1rem;
     padding: 2rem;
     object-fit: cover;
-}
+} */
 .slider {
     position: relative;
     top: 0;
@@ -290,7 +290,7 @@ nav li a:active {
 
 .slide img {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
 }
 

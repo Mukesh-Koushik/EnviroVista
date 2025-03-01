@@ -116,28 +116,28 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'ev_db',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_ev',
-        'USER': 'db_ev_user',
-        'PASSWORD': 'RKFALqYbBW5MUPZngzsfq1ck5LKFBrjE',
-        'HOST': 'dpg-cv0s51bqf0us73a1t1e0-a',
-        'PORT': '5432',  # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ev_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'db_ev',
+#         'USER': 'db_ev_user',
+#         'PASSWORD': 'RKFALqYbBW5MUPZngzsfq1ck5LKFBrjE',
+#         'HOST': 'dpg-cv0s51bqf0us73a1t1e0-a',
+#         'PORT': '5432',  # Default PostgreSQL port
+#     }
+# }
 
 
 
