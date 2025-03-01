@@ -158,16 +158,16 @@
 
           <div class="getOfferSection">
                 <div class="offer">
-                    <h3>Category 1</h3>
+                    <h3>Candles</h3>
                     <p>Get Upto 30% Off</p>
                     <button>Shop Now</button>
-                    <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Offer 1">
+                    <img src="{% static 'Candles.jpg' %}" alt="Offer 1">
                 </div>
                 <div class="offer">
-                    <h3>Category 2</h3>
+                    <h3>Grocery</h3>
                     <p>Get Upto 40% Off</p>
                     <button>Shop Now</button>
-                    <img src="https://images.pexels.com/photos/40896/larch-conifer-cone-branch-tree-40896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Offer 1">
+                    <img src="{% static 'Grocery.jpg' %}" alt="Offer 1">
                 </div>
           </div>
 
@@ -178,7 +178,7 @@
 			{% for product in products %}
             <div class="product-card" data-id="{{ product.id }}">
                 <div class="product-image">
-                    <img src="{{ product.image.url }}" alt="Product image">
+                    <a href="{% url 'cartpayment' %}"><img src="{{ product.image.url }}" alt="Product image"></a>
                 </div>
                 <div class="product-details">
                     <h3>{{ product.name }}</h3>
