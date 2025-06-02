@@ -40,7 +40,7 @@ def signup(request):
             return redirect('loginpage')
         
         try:
-            user = CustomUser.objects.create_user(username=mail,first_name=fname, last_name=lname, email=mail,password=password,phone_no=num,)
+            user = CustomUser.objects.create_user(username=mail,first_name=fname, last_name=lname, email=mail,password=password,phone_no=num)
             user.save()
             messages.success(request, "Account created successfully!")
             return redirect('loginpage')

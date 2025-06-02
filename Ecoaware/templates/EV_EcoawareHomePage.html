@@ -103,7 +103,7 @@
                 <div class="mcard">
                     <img src="{{ grp.image.url }}" alt="Protect Our Planet">
                     <div class="taskDetails">
-                        <label>{{ grp.name }}: {{ grp.description }}</label>
+                        <label>{{ grp.name }}</label>
                         <a href="{% url 'submit_task' grp.id %}"><button>Explore</button></a>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                 <div class="mcard">
                     <img src="{{ ind.image.url }}" alt="Protect Our Planet">
                     <div class="taskDetails">
-                        <label>{{ ind.name }}: {{ ind.description }}</label>
+                        <label>{{ ind.name }}</label>
                         <a href="{% url 'submit_task' ind.id %}"><button>Explore</button></a>
                     </div>
                 </div>

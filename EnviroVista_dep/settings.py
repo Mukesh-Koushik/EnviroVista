@@ -132,9 +132,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_ev',
-        'USER': 'db_ev_user',
-        'PASSWORD': '9B5s7YGedubMDGIw2k4HkxEVbUwMMOa0',
-        'HOST': 'dpg-d0h2rpje5dus73aqmnmg-a',
+        'USER': 'db_ev_3tzj_user',
+        'PASSWORD': 'P9sl3eBYP8TDIxT7Jlq2zooxvfjTg6zt',
+        'HOST': 'dpg-d0uit33e5dus739bpj1g-a',
         'PORT': '5432',  # Default PostgreSQL port
     }
 }
