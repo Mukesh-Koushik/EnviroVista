@@ -131,7 +131,7 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_ev',
+        'NAME': 'db_ev_3tzj',
         'USER': 'db_ev_3tzj_user',
         'PASSWORD': 'P9sl3eBYP8TDIxT7Jlq2zooxvfjTg6zt',
         'HOST': 'dpg-d0uit33e5dus739bpj1g-a',
